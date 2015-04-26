@@ -1,14 +1,11 @@
 using System;
 using System.Linq;
-using KRPC.Service;
 using KRPC.Service.Attributes;
 using KRPC.Utils;
 using KRPCSpaceCenter.ExtensionMethods;
 using KRPCSpaceCenter.ExternalAPI;
 using Tuple3 = KRPC.Utils.Tuple<double, double, double>;
 using Tuple4 = KRPC.Utils.Tuple<double, double, double, double>;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace KRPCSpaceCenter.Services
 {

@@ -1,0 +1,718 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Communication Protocol &mdash; kRPC 0.1.8 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="kRPC 0.1.8 documentation" href="index.html"/>
+        <link rel="prev" title="Extending kRPC" href="extending.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> kRPC</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#the-python-client">The Python Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#hello-world-script">&#8216;Hello World&#8217; Script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials and Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/suborbital-flight.html">Sub-Orbital Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/launch-into-orbit.html">Launch into Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/pitch-heading-roll.html">Pitch, Heading and Roll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/parts.html">Interacting with Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/docking-guidance.html">Docking Guidance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python-api.html">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python-api/space-center.html">SpaceCenter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/vessel.html">Vessel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/celestial-body.html">CelestialBody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/flight.html">Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/orbit.html">Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/control.html">Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/vessel-resources.html">Vessel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/parts.html">Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/node.html">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/comms.html">Comms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/reference-frame.html">ReferenceFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/auto-pilot.html">AutoPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/geometry-types.html">Geometry Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compiling.html">Compiling kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compiling.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiling.html#the-python-client-library">The Python Client Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extending.html#the-krpc-architecture">The kRPC Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending.html#service-api">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending.html#further-examples">Further Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Communication Protocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#establishing-a-connection">Establishing a connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#remote-procedures">Remote Procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#protocol-buffer-encoding">Protocol Buffer Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#streams">Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#krpc-service">KRPC Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#service-description-message">Service Description Message</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">kRPC</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Communication Protocol</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/communication-protocol.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="communication-protocol">
+<span id="id1"></span><h1>Communication Protocol<a class="headerlink" href="#communication-protocol" title="Permalink to this headline">¶</a></h1>
+<p>Clients invoke Remote Procedure Calls (RPCs) by communicating with the server
+using <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/proto">Protocol Buffer messages</a> sent over a TCP/IP
+connection.</p>
+<p>The kRPC download comes with a protocol buffer message definitions file
+<a class="reference external" href="https://github.com/djungelorm/krpc/blob/latest-version/schema/kRPC/Schema/KRPC.proto">KRPC.proto</a>
+that describes the structure of these messages. It also includes versions of
+this file compiled for Python, Java and C++ using Google&#8217;s protocol buffers
+compiler.</p>
+<div class="section" id="establishing-a-connection">
+<h2>Establishing a connection<a class="headerlink" href="#establishing-a-connection" title="Permalink to this headline">¶</a></h2>
+<p>kRPC consists of two servers: an <em>RPC server</em> (over which the client sends and
+receives RPCs) and a <em>Stream server</em> (over which the client receives
+<a class="reference internal" href="#communication-protocol-streams"><em>Streams</em></a>). A client first connects to the RPC
+server, then the Stream server.</p>
+<div class="section" id="connecting-to-the-rpc-server">
+<span id="communication-protocol-rpc-connect"></span><h3>Connecting to the RPC Server<a class="headerlink" href="#connecting-to-the-rpc-server" title="Permalink to this headline">¶</a></h3>
+<p>To establish a connection to the RPC server, a client must do the following:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Open a TCP socket to the server on its RPC port (which defaults to 50000).</li>
+<li>Send this 12 byte hello message:
+<tt class="docutils literal"><span class="pre">0x48</span> <span class="pre">0x45</span> <span class="pre">0x4C</span> <span class="pre">0x4C</span> <span class="pre">0x4F</span> <span class="pre">0x2D</span> <span class="pre">0x52</span> <span class="pre">0x50</span> <span class="pre">0x43</span> <span class="pre">0x00</span> <span class="pre">0x00</span> <span class="pre">0x00</span></tt></li>
+<li>Send a 32 byte message containing a string to identify the new connection.
+This should be a UTF-8 encoded string, up to a maximum of 32 bytes in
+length. If the string is shorter than 32 bytes, it should be padded with
+zeros.</li>
+<li>Receive a 16 byte unique client identifier. This is sent to the client when
+the connection is granted, for example after the user has clicked accept on
+the in-game UI.</li>
+</ol>
+</div></blockquote>
+<p>For example, this python code will connect to the RPC server at address
+<tt class="docutils literal"><span class="pre">127.0.0.1:50000</span></tt> using the identifier <tt class="docutils literal"><span class="pre">Jeb</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+<span class="n">rpc_conn</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">rpc_conn</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">50000</span><span class="p">))</span>
+<span class="c"># Send the 12 byte hello message</span>
+<span class="n">rpc_conn</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;</span><span class="se">\x48\x45\x4C\x4C\x4F\x2D\x52\x50\x43\x00\x00\x00</span><span class="s">&#39;</span><span class="p">)</span>
+<span class="c"># Send the 32 byte client name &#39;Jeb&#39; padded with zeros</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Jeb&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="n">name</span> <span class="o">+=</span> <span class="p">(</span><span class="n">b</span><span class="s">&#39;</span><span class="se">\x00</span><span class="s">&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">32</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)))</span>
+<span class="n">rpc_conn</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="c"># Receive the 16 byte client identifier</span>
+<span class="n">identifier</span> <span class="o">=</span> <span class="n">b</span><span class="s">&#39;&#39;</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">:</span>
+    <span class="n">identifier</span> <span class="o">+=</span> <span class="n">rpc_conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">16</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">identifier</span><span class="p">))</span>
+<span class="c"># Connection successful. Print out a message along with the client identifier.</span>
+<span class="n">identifier</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%02x</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">identifier</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;Connected to RPC server, client idenfitier = </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">identifier</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="connecting-to-the-stream-server">
+<h3>Connecting to the Stream Server<a class="headerlink" href="#connecting-to-the-stream-server" title="Permalink to this headline">¶</a></h3>
+<p>To establish a connection to the Stream server, a client must first
+<a class="reference internal" href="#communication-protocol-rpc-connect"><em>connect to the RPC server</em></a> (as
+above), then do the following.</p>
+<ol class="arabic simple">
+<li>Open a TCP socket to the server on its Stream port (which defaults to 50001).</li>
+<li>Send this 12 byte hello message:
+<tt class="docutils literal"><span class="pre">0x48</span> <span class="pre">0x45</span> <span class="pre">0x4C</span> <span class="pre">0x4C</span> <span class="pre">0x4F</span> <span class="pre">0x2D</span> <span class="pre">0x53</span> <span class="pre">0x54</span> <span class="pre">0x52</span> <span class="pre">0x45</span> <span class="pre">0x41</span> <span class="pre">0x4D</span></tt></li>
+<li>Send a 16 byte message containing the client&#8217;s unique identifier. This
+identifier is given to the client after it successfully connects to the RPC
+server.</li>
+<li>Receive a 2 byte OK message: <tt class="docutils literal"><span class="pre">0x4F</span> <span class="pre">0x4B</span></tt>. This indicates a successful
+connection.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Connecting to the Stream Server is optional. If the client doesn&#8217;t
+require stream functionality, there is no need to connect.</p>
+</div>
+<p>For example, this python code will connect to the Stream server at address
+<tt class="docutils literal"><span class="pre">127.0.0.1:50001</span></tt>. (Note that <tt class="docutils literal"><span class="pre">identifier</span></tt> is the client identifier received
+by <a class="reference internal" href="#communication-protocol-rpc-connect"><em>connecting to the RPC server</em></a> (as
+above).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+<span class="n">stream_conn</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">stream_conn</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">50001</span><span class="p">))</span>
+<span class="c"># Send the 12 byte hello message</span>
+<span class="n">stream_conn</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;</span><span class="se">\x48\x45\x4C\x4C\x4F\x2D\x53\x54\x52\x45\x41\x4D</span><span class="s">&#39;</span><span class="p">)</span>
+<span class="c"># Send the 16 byte client identifier</span>
+<span class="n">stream_conn</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
+<span class="c"># Receive the 2 byte OK message</span>
+<span class="n">ok_message</span> <span class="o">=</span> <span class="n">b</span><span class="s">&#39;&#39;</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">ok_message</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">ok_message</span> <span class="o">+=</span> <span class="n">stream_conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">2</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">ok_message</span><span class="p">))</span>
+<span class="c"># Connection successful</span>
+<span class="k">print</span> <span class="s">&#39;Connected to stream server&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="remote-procedures">
+<h2>Remote Procedures<a class="headerlink" href="#remote-procedures" title="Permalink to this headline">¶</a></h2>
+<p>Remote procedures are arranged into groups called services. These act as a
+single-level namespacing to keep things organized. Each service has a unique
+name used to identify it, and within a service each procedure has a unique name.</p>
+<div class="section" id="invoking-remote-procedures">
+<h3>Invoking Remote Procedures<a class="headerlink" href="#invoking-remote-procedures" title="Permalink to this headline">¶</a></h3>
+<p>Remote procedures are invoked by sending a request message to the RPC server,
+and waiting for a response message. These messages are encoded using Protocol
+Buffers.</p>
+<p>The request message contains the name of the procedure to invoke, and the values
+of the arguments to pass it. The response message contains the value returned by
+the procedure, or is a blank response if the procedure does not return a value.</p>
+<p>Requests are processed in order of receipt. The next request will not be
+processed until the previous one completes and it&#8217;s response has been received
+by the client. When there are multiple client connections, the requests are
+processed in round-robin order.</p>
+</div>
+<div class="section" id="anatomy-of-a-request">
+<h3>Anatomy of a Request<a class="headerlink" href="#anatomy-of-a-request" title="Permalink to this headline">¶</a></h3>
+<p>A request is sent to the server using a <tt class="docutils literal"><span class="pre">Request</span></tt> Protocol Buffer message with
+the following format:</p>
+<div class="highlight-protobuf"><div class="highlight"><pre>message Request {
+  required string service = 1;
+  required string procedure = 2;
+  repeated Argument arguments = 3;
+}
+
+message Argument {
+  required uint32 position = 1;
+  required bytes value = 2;
+}
+</pre></div>
+</div>
+<p>The fields are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">service</span></tt> - The name of the service in which the remote procedure is defined.</li>
+<li><tt class="docutils literal"><span class="pre">procedure</span></tt> - The name of the remote procedure to invoke.</li>
+<li><tt class="docutils literal"><span class="pre">arguments</span></tt> - A sequence of <tt class="docutils literal"><span class="pre">Argument</span></tt> messages containing the values of the procedure&#8217;s
+arguments. The fields are:<ul>
+<li><tt class="docutils literal"><span class="pre">position</span></tt> - The zero-indexed position of the of the argument in the procedure&#8217;s
+signature.</li>
+<li><tt class="docutils literal"><span class="pre">value</span></tt> - The value of the argument, encoded in Protocol Buffer format.</li>
+</ul>
+</li>
+</ul>
+<p>The <tt class="docutils literal"><span class="pre">Argument</span></tt> messages have a position field to allow values for default
+arguments to be omitted. See <a class="reference internal" href="#communication-protocol-protobuf-encoding"><em>Protocol Buffer Encoding</em></a> for
+details on how to serialize the argument values.</p>
+</div>
+<div class="section" id="anatomy-of-a-response">
+<h3>Anatomy of a response<a class="headerlink" href="#anatomy-of-a-response" title="Permalink to this headline">¶</a></h3>
+<p>A response is sent to the client using a <tt class="docutils literal"><span class="pre">Response</span></tt> Protocol Buffer message
+with the following format:</p>
+<div class="highlight-protobuf"><div class="highlight"><pre><span class="kd">message</span> <span class="nc">Response</span> <span class="p">{</span>
+  <span class="k">required</span> <span class="kt">double</span> <span class="na">time</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">optional</span> <span class="kt">string</span> <span class="na">error</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="k">optional</span> <span class="kt">bytes</span> <span class="na">return_value</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The fields are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">time</span></tt> - The universal time (in seconds) when the request completed
+processing.</li>
+<li><tt class="docutils literal"><span class="pre">error</span></tt> - Blank if the remote procedure completed successfully, otherwise
+contains a description of the error encountered.</li>
+<li><tt class="docutils literal"><span class="pre">return_value</span></tt> - The value returned by the remote procedure encoded in
+protocol buffer format, or blank if the procedure does not return a value or
+an error occurred.</li>
+</ul>
+<p>See <a class="reference internal" href="#communication-protocol-protobuf-encoding"><em>Protocol Buffer Encoding</em></a> for details on how to
+unserialize the return value.</p>
+</div>
+<div class="section" id="encoding-and-sending-requests-and-responses">
+<h3>Encoding and Sending Requests and Responses<a class="headerlink" href="#encoding-and-sending-requests-and-responses" title="Permalink to this headline">¶</a></h3>
+<p>To send a request:</p>
+<ol class="arabic simple">
+<li>Encode a <tt class="docutils literal"><span class="pre">Request</span></tt> message using the
+<a class="reference internal" href="#communication-protocol-protobuf-encoding"><em>Protocol Buffer Encoding</em></a>.</li>
+<li>Send the size in bytes of the encoded <tt class="docutils literal"><span class="pre">Request</span></tt> message, encoded as a
+Protocol Buffer varint.</li>
+<li>Send the message data.</li>
+</ol>
+<p>To receive a response:</p>
+<ol class="arabic simple">
+<li>Read a Protocol Buffer varint, which contains the length of the <tt class="docutils literal"><span class="pre">Response</span></tt>
+message data in bytes.</li>
+<li>Receive and decode the <tt class="docutils literal"><span class="pre">Response</span></tt> message.</li>
+</ol>
+</div>
+<div class="section" id="example-rpc-invocation">
+<h3>Example RPC invocation<a class="headerlink" href="#example-rpc-invocation" title="Permalink to this headline">¶</a></h3>
+<p>The following Python script invokes the <tt class="docutils literal"><span class="pre">GetStatus</span></tt> procedure from the
+<a class="reference internal" href="#communication-protocol-krpc-service"><em>KRPC service</em></a> using an already
+established connection to the server (the <tt class="docutils literal"><span class="pre">conn</span></tt> variable).</p>
+<p>The <tt class="docutils literal"><span class="pre">krpc.schema.KRPC</span></tt> package contains the Protocol Buffer message formats
+<tt class="docutils literal"><span class="pre">Request</span></tt>, <tt class="docutils literal"><span class="pre">Response</span></tt> and <tt class="docutils literal"><span class="pre">Status</span></tt> compiled to python code using the
+Protocol Buffer compiler. The <tt class="docutils literal"><span class="pre">EncodeVarint</span></tt> and <tt class="docutils literal"><span class="pre">DecodeVarint</span></tt> functions
+are used to encode/decode integers to/from the Protocol Buffer varint
+format. Their implementation is omitted for brevity.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Create Request message</span>
+<span class="n">request</span> <span class="o">=</span> <span class="n">krpc</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">KRPC</span><span class="o">.</span><span class="n">Request</span><span class="p">()</span>
+<span class="n">request</span><span class="o">.</span><span class="n">service</span> <span class="o">=</span> <span class="s">&#39;KRPC&#39;</span>
+<span class="n">request</span><span class="o">.</span><span class="n">procedure</span> <span class="o">=</span> <span class="s">&#39;GetStatus&#39;</span>
+
+<span class="c"># Encode and send the request</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">SerializeToString</span><span class="p">()</span>
+<span class="n">header</span> <span class="o">=</span> <span class="n">EncodeVarint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">rpc_conn</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">header</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
+
+<span class="c"># Receive the size of the response data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">b</span><span class="s">&#39;&#39;</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">+=</span> <span class="n">rpc_conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span> <span class="o">=</span> <span class="n">DecodeVarint</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+<span class="c"># Receive the response data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">b</span><span class="s">&#39;&#39;</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">+=</span> <span class="n">rpc_conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">size</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+<span class="c"># Decode the response message</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">krpc</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">KRPC</span><span class="o">.</span><span class="n">Response</span><span class="p">()</span>
+<span class="n">response</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c"># Check for an error response</span>
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">HasField</span><span class="p">(</span><span class="s">&#39;error&#39;</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&#39;ERROR:&#39;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">error</span>
+
+<span class="c"># Decode the return value as a Status message</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">krpc</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">KRPC</span><span class="o">.</span><span class="n">Status</span><span class="p">()</span>
+    <span class="n">status</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">return_value</span><span class="p">)</span>
+
+    <span class="c"># Print out the version string from the Status message</span>
+    <span class="k">print</span> <span class="n">status</span><span class="o">.</span><span class="n">version</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="protocol-buffer-encoding">
+<span id="communication-protocol-protobuf-encoding"></span><h2>Protocol Buffer Encoding<a class="headerlink" href="#protocol-buffer-encoding" title="Permalink to this headline">¶</a></h2>
+<p>Values passed as arguments or received as return values are encoded using the
+Protocol Buffer serialization format:</p>
+<ul class="simple">
+<li>Documentation for this encoding can be found here:
+<a class="reference external" href="https://developers.google.com/protocol-buffers/docs/encoding">https://developers.google.com/protocol-buffers/docs/encoding</a></li>
+<li>Protocol Buffer serialization libraries are available for C++/Java/Python here:
+<a class="reference external" href="http://code.google.com/p/protobuf/downloads/list">http://code.google.com/p/protobuf/downloads/list</a></li>
+<li>There are implementations available for most popular languages here:
+<a class="reference external" href="http://code.google.com/p/protobuf/wiki/ThirdPartyAddOns">http://code.google.com/p/protobuf/wiki/ThirdPartyAddOns</a></li>
+</ul>
+</div>
+<div class="section" id="streams">
+<span id="communication-protocol-streams"></span><h2>Streams<a class="headerlink" href="#streams" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="krpc-service">
+<span id="communication-protocol-krpc-service"></span><h2>KRPC Service<a class="headerlink" href="#krpc-service" title="Permalink to this headline">¶</a></h2>
+<p>The server provides a service called <tt class="docutils literal"><span class="pre">KRPC</span></tt> containing procedures that are
+used to retrieve information about the server and add/remove streams.</p>
+<div class="section" id="getstatus">
+<h3>GetStatus<a class="headerlink" href="#getstatus" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">GetStatus</span></tt> procedure returns status information about the server. It
+returns a Protocol Buffer message with the format:</p>
+<div class="highlight-protobuf"><div class="highlight"><pre><span class="kd">message</span> <span class="nc">Status</span> <span class="p">{</span>
+  <span class="k">required</span> <span class="kt">string</span> <span class="na">version</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The field <tt class="docutils literal"><span class="pre">version</span></tt> is the version string of the server.</p>
+</div>
+<div class="section" id="getservices">
+<span id="communication-protocol-get-services"></span><h3>GetServices<a class="headerlink" href="#getservices" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">GetServices</span></tt> procedure returns a Protocol Buffer message containing
+information about all of the services and procedures provided by the server. It
+also provides type information about each procedure, in the form of
+<a class="reference internal" href="#communication-protocol-attributes"><em>attributes</em></a>. The format of the message
+is:</p>
+<div class="highlight-protobuf"><div class="highlight"><pre><span class="kd">message</span> <span class="nc">Services</span> <span class="p">{</span>
+  <span class="k">repeated</span> <span class="n">Service</span> <span class="na">services</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This contains a single field, which is a list of <tt class="docutils literal"><span class="pre">Service</span></tt> messages with
+information about each service provided by the server. The content of these
+<tt class="docutils literal"><span class="pre">Service</span></tt> messages are <a class="reference internal" href="#communication-protocol-service-description-message"><em>documented below</em></a>.</p>
+</div>
+<div class="section" id="addstream">
+<h3>AddStream<a class="headerlink" href="#addstream" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">AddStream</span></tt> procedure adds a stream to the server.</p>
+<p>TODO</p>
+</div>
+<div class="section" id="removestream">
+<h3>RemoveStream<a class="headerlink" href="#removestream" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">RemoveStream</span></tt> procedure removes a stream from the server.</p>
+<p>TODO</p>
+</div>
+</div>
+<div class="section" id="service-description-message">
+<span id="communication-protocol-service-description-message"></span><h2>Service Description Message<a class="headerlink" href="#service-description-message" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="#communication-protocol-get-services"><em>GetServices procedure</em></a> returns
+information about all of the services provided by the server. Details about a
+service are given by a <tt class="docutils literal"><span class="pre">Service</span></tt> message, with the format:</p>
+<div class="highlight-protobuf"><div class="highlight"><pre><span class="kd">message</span> <span class="nc">Service</span> <span class="p">{</span>
+  <span class="k">required</span> <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">repeated</span> <span class="n">Procedure</span> <span class="na">procedures</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="k">repeated</span> <span class="n">Class</span> <span class="na">classes</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="k">repeated</span> <span class="n">Enumeration</span> <span class="na">enumerations</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The fields are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">name</span></tt> - The name of the service.</li>
+<li><tt class="docutils literal"><span class="pre">procedures</span></tt> - A list of <tt class="docutils literal"><span class="pre">Procedure</span></tt> messages, one for each procedure
+defined by the service.</li>
+<li><tt class="docutils literal"><span class="pre">classes</span></tt> - A list of <tt class="docutils literal"><span class="pre">Class</span></tt> messages, one for each <a class="reference internal" href="extending.html#KRPCClass" title="KRPCClass"><tt class="xref py py-class docutils literal"><span class="pre">KRPCClass</span></tt></a>
+defined by the service.</li>
+<li><tt class="docutils literal"><span class="pre">enumerations</span></tt> - A list of <tt class="docutils literal"><span class="pre">Enumeration</span></tt> messages, one for each
+<a class="reference internal" href="extending.html#KRPCEnum" title="KRPCEnum"><tt class="xref py py-class docutils literal"><span class="pre">KRPCEnum</span></tt></a> defined by the service.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the <a class="reference internal" href="extending.html#extending"><em>Extending kRPC</em></a> documentation for more details about
+<a class="reference internal" href="extending.html#KRPCClass" title="KRPCClass"><tt class="xref py py-class docutils literal"><span class="pre">KRPCClass</span></tt></a> and <a class="reference internal" href="extending.html#KRPCEnum" title="KRPCEnum"><tt class="xref py py-class docutils literal"><span class="pre">KRPCEnum</span></tt></a>.</p>
+</div>
+<div class="section" id="procedures">
+<h3>Procedures<a class="headerlink" href="#procedures" title="Permalink to this headline">¶</a></h3>
+<p>Details about a procedure are given by a <tt class="docutils literal"><span class="pre">Procedure</span></tt> message, with the format:</p>
+<div class="highlight-protobuf"><div class="highlight"><pre><span class="kd">message</span> <span class="nc">Procedure</span> <span class="p">{</span>
+  <span class="k">required</span> <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">repeated</span> <span class="n">Parameter</span> <span class="na">parameters</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="k">optional</span> <span class="kt">string</span> <span class="na">return_type</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="k">repeated</span> <span class="kt">string</span> <span class="na">attributes</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span> <span class="nc">Parameter</span> <span class="p">{</span>
+  <span class="k">required</span> <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">required</span> <span class="kt">string</span> <span class="na">type</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="k">optional</span> <span class="kt">bytes</span> <span class="na">default_argument</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The fields are:</p>
+<ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">name</span></tt> - The name of the procedure.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">parameters</span></tt> - A list of <tt class="docutils literal"><span class="pre">Parameter</span></tt> messages containing details of the
+procedure&#8217;s parameters, with the following fields:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">name</span></tt> - The name of the parameter, to allow parameter passing by name.</li>
+<li><tt class="docutils literal"><span class="pre">type</span></tt> - The <a class="reference internal" href="#communication-protocol-type-names"><em>type</em></a> of the
+parameter.</li>
+<li><tt class="docutils literal"><span class="pre">default_argument</span></tt> - The value of the default value of the parameter,
+<a class="reference internal" href="#communication-protocol-protobuf-encoding"><em>encoded using Protocol Buffer format</em></a>, or blank if the parameter has no
+default value.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">return_type</span></tt> - The <a class="reference internal" href="#communication-protocol-type-names"><em>return type</em></a>
+of the procedure.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">attributes</span></tt> - The procedure&#8217;s <a class="reference internal" href="#communication-protocol-attributes"><em>attributes</em></a>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<p>Details about each <a class="reference internal" href="extending.html#KRPCClass" title="KRPCClass"><tt class="xref py py-class docutils literal"><span class="pre">KRPCClass</span></tt></a> are specified in a <tt class="docutils literal"><span class="pre">Class</span></tt> message, with the
+format:</p>
+<div class="highlight-protobuf"><div class="highlight"><pre><span class="kd">message</span> <span class="nc">Class</span> <span class="p">{</span>
+  <span class="k">required</span> <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The fields are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">name</span></tt> - The name of the class.</li>
+</ul>
+</div>
+<div class="section" id="enumerations">
+<h3>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h3>
+<p>Details about each <a class="reference internal" href="extending.html#KRPCEnum" title="KRPCEnum"><tt class="xref py py-class docutils literal"><span class="pre">KRPCEnum</span></tt></a> are specified in an <tt class="docutils literal"><span class="pre">Enumeration</span></tt> message,
+with the format:</p>
+<div class="highlight-protobuf"><div class="highlight"><pre><span class="kd">message</span> <span class="nc">Enumeration</span> <span class="p">{</span>
+  <span class="k">required</span> <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">repeated</span> <span class="n">EnumerationValue</span> <span class="na">values</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span> <span class="nc">EnumerationValue</span> <span class="p">{</span>
+  <span class="k">required</span> <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">required</span> <span class="kt">int32</span> <span class="na">value</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The fields are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">name</span></tt> - The name of the enumeration.</li>
+<li><tt class="docutils literal"><span class="pre">values</span></tt> - A list of <tt class="docutils literal"><span class="pre">EnumerationValue</span></tt> messages, indicating the values
+that the enumeration can be assigned. The fields are:<ul>
+<li><tt class="docutils literal"><span class="pre">name</span></tt> - The name associated with the value for the enumeration.</li>
+<li><tt class="docutils literal"><span class="pre">value</span></tt> - The possible value for the enumeration as a 32-bit integer.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="attributes">
+<span id="communication-protocol-attributes"></span><h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<p>Additional type information about a procedure is encoded as a list of
+attributes, and included in the <tt class="docutils literal"><span class="pre">Procedure</span></tt> message. For example, if the
+procedure implements a method for a class (see <a class="reference internal" href="#communication-protocol-proxy-objects"><em>proxy objects</em></a>) this fact will be specified in the
+attributes.</p>
+<p>The following attributes specify what the procedure implements:</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Property.Get(property-name)</span></tt></p>
+<p>Indicates that the procedure is a property getter (for the service) with the
+given <tt class="docutils literal"><span class="pre">property-name</span></tt>.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Property.Set(property-name)</span></tt></p>
+<p>Indicates that the procedure is a property setter (for the service) with the
+given <tt class="docutils literal"><span class="pre">property-name</span></tt>.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Class.Method(class-name,method-name)</span></tt></p>
+<p>Indicates that the procedure is a method for a class with the given
+<tt class="docutils literal"><span class="pre">class-name</span></tt> and <tt class="docutils literal"><span class="pre">method-name</span></tt>.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Class.StaticMethod(class-name,method-name)</span></tt></p>
+<p>Indicates that the procedure is a static method for a class with the given
+<tt class="docutils literal"><span class="pre">class-name</span></tt> and <tt class="docutils literal"><span class="pre">method-name</span></tt>.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Class.Property.Get(class-name,property-name)</span></tt></p>
+<p>Indicates that the procedure is a property getter for a class with the given
+<tt class="docutils literal"><span class="pre">class-name</span></tt> and <tt class="docutils literal"><span class="pre">property-name</span></tt>.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Class.Property.Set(class-name,property-name)</span></tt></p>
+<p>Indicates that the procedure is a property setter for a class with the given
+<tt class="docutils literal"><span class="pre">class-name</span></tt> and <tt class="docutils literal"><span class="pre">property-name</span></tt>.</p>
+</li>
+</ul>
+</div></blockquote>
+<p>The following attributes specify more details about the return and parameter types of the procedure.</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">ReturnType.type-name</span></tt></p>
+<p>Specifies the actual <a class="reference internal" href="#communication-protocol-type-names"><em>return type</em></a>
+of the procedure, if it differs to the type specified in the <tt class="docutils literal"><span class="pre">Procedure</span></tt>
+message. For example, this is used with <a class="reference internal" href="#communication-protocol-proxy-objects"><em>proxy objects</em></a>.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">ParameterType(parameter-position).type-name</span></tt></p>
+<p>Specifies the actual <a class="reference internal" href="#communication-protocol-type-names"><em>parameter type</em></a> of the procedure, if it differs to the
+type of the corresponding parameter specified in the <tt class="docutils literal"><span class="pre">Parameter</span></tt>
+message. For example, this is used with <a class="reference internal" href="#communication-protocol-proxy-objects"><em>proxy objects</em></a>.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="type-names">
+<span id="communication-protocol-type-names"></span><h3>Type Names<a class="headerlink" href="#type-names" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">GetServices</span></tt> procedure returns type information about parameters and
+return values as strings. Type names can be any of the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li>A Protocol Buffer value type. One of <tt class="docutils literal"><span class="pre">double</span></tt>, <tt class="docutils literal"><span class="pre">float</span></tt>, <tt class="docutils literal"><span class="pre">int32</span></tt>,
+<tt class="docutils literal"><span class="pre">int64</span></tt>, <tt class="docutils literal"><span class="pre">uint32</span></tt>, <tt class="docutils literal"><span class="pre">uint64</span></tt>, <tt class="docutils literal"><span class="pre">bool</span></tt>, <tt class="docutils literal"><span class="pre">string</span></tt> or <tt class="docutils literal"><span class="pre">bytes</span></tt></li>
+<li>A KRPCClass, in the format <tt class="docutils literal"><span class="pre">Class(ClassName)</span></tt></li>
+<li>A Protocol Buffer message type, in the format <tt class="docutils literal"><span class="pre">ServiceName.MessageName</span></tt></li>
+<li>A Protocol Buffer enumeration type, in the format
+<tt class="docutils literal"><span class="pre">ServiceName.EnumerationName</span></tt></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="proxy-objects">
+<span id="communication-protocol-proxy-objects"></span><h3>Proxy Objects<a class="headerlink" href="#proxy-objects" title="Permalink to this headline">¶</a></h3>
+<p>kRPC allows procedures to create objects on the server, and passes unique
+identifiers for them to the client. This allows the client to create a <em>proxy</em>
+object for the actual object, whose methods and properties make remote procedure
+calls to the server. Object identifiers have type <tt class="docutils literal"><span class="pre">uint64</span></tt>.</p>
+<p>When a procedure returns a proxy object, the procedure will have the attribute
+<tt class="docutils literal"><span class="pre">ReturnType.Class(ClassName)</span></tt> where <tt class="docutils literal"><span class="pre">ClassName</span></tt> is the name of the class.</p>
+<p>When a procedure takes a proxy object as a parameter, the procedure will have
+the attribute <tt class="docutils literal"><span class="pre">ParameterType(n).Class(ClassName)</span></tt> where <tt class="docutils literal"><span class="pre">n</span></tt> is the position
+of the parameter and <tt class="docutils literal"><span class="pre">ClassName</span></tt> is the name of the class.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="extending.html" class="btn btn-neutral" title="Extending kRPC"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, djungelorm.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61341323-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

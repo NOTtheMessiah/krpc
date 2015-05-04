@@ -1,0 +1,483 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AutoPilot &mdash; kRPC 0.1.8 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="kRPC 0.1.8 documentation" href="../index.html"/>
+        <link rel="up" title="Python API" href="../python-api.html"/>
+        <link rel="next" title="Geometry Types" href="geometry-types.html"/>
+        <link rel="prev" title="ReferenceFrame" href="reference-frame.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> kRPC</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#the-python-client">The Python Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#hello-world-script">&#8216;Hello World&#8217; Script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials and Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/suborbital-flight.html">Sub-Orbital Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/launch-into-orbit.html">Launch into Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/pitch-heading-roll.html">Pitch, Heading and Roll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/parts.html">Interacting with Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/docking-guidance.html">Docking Guidance</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../python-api.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="space-center.html">SpaceCenter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vessel.html">Vessel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celestial-body.html">CelestialBody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flight.html">Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orbit.html">Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control.html">Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vessel-resources.html">Vessel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parts.html">Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comms.html">Comms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frame.html">ReferenceFrame</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">AutoPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry-types.html">Geometry Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../compiling.html">Compiling kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../compiling.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../compiling.html#the-python-client-library">The Python Client Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../extending.html">Extending kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending.html#the-krpc-architecture">The kRPC Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending.html#service-api">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending.html#further-examples">Further Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../communication-protocol.html">Communication Protocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#establishing-a-connection">Establishing a connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#remote-procedures">Remote Procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#protocol-buffer-encoding">Protocol Buffer Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#streams">Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#krpc-service">KRPC Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#service-description-message">Service Description Message</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">kRPC</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../python-api.html">Python API</a> &raquo;</li>
+      
+    <li>AutoPilot</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/python-api/auto-pilot.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="autopilot">
+<h1>AutoPilot<a class="headerlink" href="#autopilot" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="AutoPilot">
+<em class="property">class </em><tt class="descname">AutoPilot</tt><a class="headerlink" href="#AutoPilot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides basic auto-piloting utilities for a vessel. Created by calling
+<a class="reference internal" href="vessel.html#Vessel.auto_pilot" title="Vessel.auto_pilot"><tt class="xref py py-attr docutils literal"><span class="pre">Vessel.auto_pilot</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="AutoPilot.sas">
+<tt class="descname">sas</tt><a class="headerlink" href="#AutoPilot.sas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the state of SAS.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">True</span></tt> if SAS is enabled, <tt class="docutils literal"><span class="pre">False</span></tt> if it is not.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="AutoPilot.sas_mode">
+<tt class="descname">sas_mode</tt><a class="headerlink" href="#AutoPilot.sas_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the SAS mode. These modes are equivalent to the mode buttons to
+the left of the navball that appear when SAS is enabled.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#SASMode" title="SASMode"><tt class="xref py py-class docutils literal"><span class="pre">SASMode</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The current <a class="reference internal" href="#SASMode" title="SASMode"><tt class="xref py py-class docutils literal"><span class="pre">SASMode</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="AutoPilot.speed_mode">
+<tt class="descname">speed_mode</tt><a class="headerlink" href="#AutoPilot.speed_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the speed mode of the navball. This is the mode displayed next
+to the speed at the top of the navball.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#SpeedMode" title="SpeedMode"><tt class="xref py py-class docutils literal"><span class="pre">SpeedMode</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The current <a class="reference internal" href="#SpeedMode" title="SpeedMode"><tt class="xref py py-class docutils literal"><span class="pre">SpeedMode</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="AutoPilot.set_rotation">
+<tt class="descname">set_rotation</tt><big>(</big><em>pitch</em>, <em>heading</em><span class="optional">[</span>, <em>roll=na_n</em><span class="optional">]</span><span class="optional">[</span>, <em>reference_frame=Vessel.surface_reference_frame</em><span class="optional">]</span><span class="optional">[</span>, <em>wait=false</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#AutoPilot.set_rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Points the vessel in the specified direction, and holds it there. Setting
+the roll angle is optional.</p>
+<p>If wait is <tt class="docutils literal"><span class="pre">False</span></tt> (the default) this method returns immediately, and
+the auto-pilot continues to rotate the vessel. If wait is <tt class="docutils literal"><span class="pre">True</span></tt>, this
+method returns when the auto-pilot has rotated the vessel into the
+requested orientation.</p>
+<p>The auto-pilot is disengaged either when <a class="reference internal" href="#AutoPilot.disengage" title="AutoPilot.disengage"><tt class="xref py py-meth docutils literal"><span class="pre">AutoPilot.disengage()</span></tt></a> is
+called, or when the client that requested the auto-pilot command
+disconnects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pitch</strong> (<em>float</em>) &#8211; The desired pitch above/below the horizon, in
+degrees. A value between -90° and +90° degrees.</li>
+<li><strong>heading</strong> (<em>float</em>) &#8211; The desired heading in degrees. A value between 0°
+and 360°.</li>
+<li><strong>roll</strong> (<em>float</em>) &#8211; Optional desired roll angle relative to the horizon, in
+degrees. A value between -180° and +180°.</li>
+<li><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; The reference frame that the pitch,
+heading and roll are in. Defaults to
+the vessels surface reference frame.</li>
+<li><strong>wait</strong> (<em>bool</em>) &#8211; If true, this method returns when the auto-pilot has
+rotated the vessel into the requested orientation.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="AutoPilot.set_direction">
+<tt class="descname">set_direction</tt><big>(</big><em>direction</em><span class="optional">[</span>, <em>roll=na_n</em><span class="optional">]</span><span class="optional">[</span>, <em>reference_frame=Vessel.surface_reference_frame</em><span class="optional">]</span><span class="optional">[</span>, <em>wait=false</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#AutoPilot.set_direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Points the vessel along the specified direction vector, and holds it
+there. Setting the roll angle is optional.</p>
+<p>If wait is <tt class="docutils literal"><span class="pre">False</span></tt> (the default) this method returns immediately, and
+the auto-pilot continues to rotate the vessel. If wait is <tt class="docutils literal"><span class="pre">True</span></tt>, this
+method returns when the auto-pilot has rotated the vessel into the
+requested orientation.</p>
+<p>The auto-pilot is disengaged either when <a class="reference internal" href="#AutoPilot.disengage" title="AutoPilot.disengage"><tt class="xref py py-meth docutils literal"><span class="pre">AutoPilot.disengage()</span></tt></a> is
+called, or when the client that requested the auto-pilot command
+disconnects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>direction</strong> (<a class="reference internal" href="geometry-types.html#Vector3" title="Vector3"><em>Vector3</em></a>) &#8211; The desired direction (pitch and heading) as a
+unit vector.</li>
+<li><strong>roll</strong> (<em>float</em>) &#8211; Optional desired roll angle relative to the horizon, in
+degrees. A value between -180° and 180°.</li>
+<li><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; The reference frame that the
+direction vector is in. Defaults to
+the vessels surface reference frame.</li>
+<li><strong>wait</strong> (<em>bool</em>) &#8211; If true, this method returns when the auto-pilot has
+rotated the vessel into the requested orientation.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="AutoPilot.error">
+<tt class="descname">error</tt><a class="headerlink" href="#AutoPilot.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the error, in degrees, between the direction the ship has been asked
+to point in and the actual direction it is pointing in. If the auto-pilot
+has not been engaged, returns zero.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="AutoPilot.roll_error">
+<tt class="descname">roll_error</tt><a class="headerlink" href="#AutoPilot.roll_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the error, in degrees, between the roll the ship has been asked to be
+in and the actual roll. If the auto-pilot has not been engaged, returns
+zero.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="AutoPilot.disengage">
+<tt class="descname">disengage</tt><big>(</big><big>)</big><a class="headerlink" href="#AutoPilot.disengage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disengage the auto-pilot.  Has no effect unless
+<a class="reference internal" href="#AutoPilot.set_rotation" title="AutoPilot.set_rotation"><tt class="xref py py-meth docutils literal"><span class="pre">AutoPilot.set_rotation()</span></tt></a> or <a class="reference internal" href="#AutoPilot.set_direction" title="AutoPilot.set_direction"><tt class="xref py py-meth docutils literal"><span class="pre">AutoPilot.set_direction()</span></tt></a> have been
+called previously.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will disable <a class="reference internal" href="control.html#Control.sas" title="Control.sas"><tt class="xref py py-attr docutils literal"><span class="pre">Control.sas</span></tt></a>.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="SASMode">
+<em class="property">class </em><tt class="descname">SASMode</tt><a class="headerlink" href="#SASMode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="data">
+<dt id="SASMode.stability_assist">
+<tt class="descname">stability_assist</tt><a class="headerlink" href="#SASMode.stability_assist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SASMode.maneuver">
+<tt class="descname">maneuver</tt><a class="headerlink" href="#SASMode.maneuver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SASMode.prograde">
+<tt class="descname">prograde</tt><a class="headerlink" href="#SASMode.prograde" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SASMode.retrograde">
+<tt class="descname">retrograde</tt><a class="headerlink" href="#SASMode.retrograde" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SASMode.normal">
+<tt class="descname">normal</tt><a class="headerlink" href="#SASMode.normal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SASMode.anti_normal">
+<tt class="descname">anti_normal</tt><a class="headerlink" href="#SASMode.anti_normal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SASMode.radial">
+<tt class="descname">radial</tt><a class="headerlink" href="#SASMode.radial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SASMode.anti_radial">
+<tt class="descname">anti_radial</tt><a class="headerlink" href="#SASMode.anti_radial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SASMode.target">
+<tt class="descname">target</tt><a class="headerlink" href="#SASMode.target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SASMode.anti_target">
+<tt class="descname">anti_target</tt><a class="headerlink" href="#SASMode.anti_target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="SpeedMode">
+<em class="property">class </em><tt class="descname">SpeedMode</tt><a class="headerlink" href="#SpeedMode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="data">
+<dt id="SpeedMode.orbit">
+<tt class="descname">orbit</tt><a class="headerlink" href="#SpeedMode.orbit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SpeedMode.surface">
+<tt class="descname">surface</tt><a class="headerlink" href="#SpeedMode.surface" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SpeedMode.target">
+<tt class="descname">target</tt><a class="headerlink" href="#SpeedMode.target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="geometry-types.html" class="btn btn-neutral float-right" title="Geometry Types">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="reference-frame.html" class="btn btn-neutral" title="ReferenceFrame"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, djungelorm.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61341323-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

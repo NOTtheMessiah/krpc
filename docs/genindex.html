@@ -1,0 +1,2266 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Index &mdash; kRPC 0.1.8 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="kRPC 0.1.8 documentation" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> kRPC</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#the-python-client">The Python Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#hello-world-script">&#8216;Hello World&#8217; Script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials and Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/suborbital-flight.html">Sub-Orbital Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/launch-into-orbit.html">Launch into Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/pitch-heading-roll.html">Pitch, Heading and Roll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/parts.html">Interacting with Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/docking-guidance.html">Docking Guidance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python-api.html">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python-api/space-center.html">SpaceCenter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/vessel.html">Vessel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/celestial-body.html">CelestialBody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/flight.html">Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/orbit.html">Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/control.html">Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/vessel-resources.html">Vessel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/parts.html">Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/node.html">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/comms.html">Comms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/reference-frame.html">ReferenceFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/auto-pilot.html">AutoPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/geometry-types.html">Geometry Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compiling.html">Compiling kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compiling.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compiling.html#the-python-client-library">The Python Client Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extending.html#the-krpc-architecture">The kRPC Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending.html#service-api">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending.html#further-examples">Further Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="communication-protocol.html">Communication Protocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="communication-protocol.html#establishing-a-connection">Establishing a connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication-protocol.html#remote-procedures">Remote Procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication-protocol.html#protocol-buffer-encoding">Protocol Buffer Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication-protocol.html#streams">Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication-protocol.html#krpc-service">KRPC Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication-protocol.html#service-description-message">Service Description Message</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">kRPC</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li></li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#Y"><strong>Y</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/control.html#Control.abort">abort (Control attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Module.actions">actions (Module attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.activate_next_stage">activate_next_stage() (Control method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Engine.active">active (Engine attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#Light.active">(Light attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#ParachuteState.active">(ParachuteState attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#ReactionWheel.active">(ReactionWheel attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#Sensor.active">(Sensor attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.active_vessel">active_vessel (SpaceCenter attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.add_node">add_node() (Control method)</a>
+  </dt>
+
+      
+  <dt><a href="extending.html#GameScene.All">All (GameScene attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.all">all (Parts attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#PartResources.amount">amount() (PartResources method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/vessel-resources.html#VesselResources.amount">(VesselResources method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/flight.html#Flight.angle_of_attack">angle_of_attack (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.angular_velocity">angular_velocity() (CelestialBody method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/vessel.html#Vessel.angular_velocity">(Vessel method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/flight.html#Flight.anti_normal">anti_normal (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.anti_radial">anti_radial (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.apoapsis">apoapsis (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.apoapsis_altitude">apoapsis_altitude (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.argument_of_periapsis">argument_of_periapsis (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.atmosphere_density">atmosphere_density (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.atmosphere_depth">atmosphere_depth (CelestialBody attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#Vessel.auto_pilot">auto_pilot (Vessel attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#AutoPilot">AutoPilot (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Engine.available_thrust">available_thrust (Engine attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/vessel.html#Vessel.available_thrust">(Vessel attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#Part.axially_attached">axially_attached (Part attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/flight.html#Flight.ballistic_coefficient">ballistic_coefficient (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.bedrock_altitude">bedrock_altitude (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.bodies">bodies (SpaceCenter attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.body">body (Orbit attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/control.html#Control.brakes">brakes (Control attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#ReactionWheel.broken">broken (ReactionWheel attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/node.html#Node.burn_vector">burn_vector() (Node method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#Engine.can_restart">can_restart (Engine attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Engine.can_shutdown">can_shutdown (Engine attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody">CelestialBody (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.center_of_mass">center_of_mass (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.children">children (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.clear_directions">clear_directions() (SpaceCenter method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.clear_target">clear_target() (SpaceCenter method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/comms.html#Comms">Comms (built-in class)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/vessel.html#Vessel.comms">comms (Vessel attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control">Control (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#Vessel.control">control (Vessel attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.controlling">controlling (Parts attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.cost">cost (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.crossfeed">crossfeed (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.current_stage">current_stage (Control attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#ParachuteState.cut">cut (ParachuteState attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#Decoupler.decouple">decouple() (Decoupler method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.decouple_stage">decouple_stage (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Decoupler.decoupled">decoupled (Decoupler attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Decoupler">Decoupler (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.decoupler">decoupler (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.decouplers">decouplers (Parts attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/node.html#Node.delta_v">delta_v (Node attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parachute.deploy">deploy() (Parachute method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parachute.deploy_altitude">deploy_altitude (Parachute attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parachute.deploy_min_pressure">deploy_min_pressure (Parachute attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LandingGear.deployed">deployed (LandingGear attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#LandingLeg.deployed">(LandingLeg attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#Parachute.deployed">(Parachute attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#ParachuteState.deployed">(ParachuteState attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#SolarPanel.deployed">(SolarPanel attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/flight.html#Flight.direction">direction (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.direction">direction() (CelestialBody method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#DockingPort.direction">(DockingPort method)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/node.html#Node.direction">(Node method)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#Part.direction">(Part method)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/vessel.html#Vessel.direction">(Vessel method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/auto-pilot.html#AutoPilot.disengage">disengage() (AutoPilot method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#DockingPort.docked_part">docked_part (DockingPort attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.docking_port">docking_port (Part attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#Parts.docking_port_with_name">docking_port_with_name() (Parts method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.docking_ports">docking_ports (Parts attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#DockingPort">DockingPort (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#DockingPortState">DockingPortState (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#DockingPortState.docked">DockingPortState.docked (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#DockingPortState.docking">DockingPortState.docking (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#DockingPortState.moving">DockingPortState.moving (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#DockingPortState.ready">DockingPortState.ready (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#DockingPortState.shielded">DockingPortState.shielded (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#DockingPortState.undocking">DockingPortState.undocking (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.drag">drag (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.drag_coefficient">drag_coefficient (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.draw_direction">draw_direction() (SpaceCenter method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.dry_mass">dry_mass (Part attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/vessel.html#Vessel.dry_mass">(Vessel attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/flight.html#Flight.dynamic_pressure">dynamic_pressure (Flight attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/orbit.html#Orbit.eccentric_anomaly">eccentric_anomaly (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.eccentricity">eccentricity (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="extending.html#GameScene.Editor">Editor (GameScene attribute)</a>
+  </dt>
+
+      
+  <dt><a href="extending.html#GameScene.EditorSPH">EditorSPH (GameScene attribute)</a>
+  </dt>
+
+      
+  <dt><a href="extending.html#GameScene.EditorVAB">EditorVAB (GameScene attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.elevation">elevation (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#SolarPanel.energy_flow">energy_flow (SolarPanel attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Engine">Engine (built-in class)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#Part.engine">engine (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.engines">engines (Parts attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.epoch">epoch (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.equatorial_radius">equatorial_radius (CelestialBody attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.equivalent_air_speed">equivalent_air_speed (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#AutoPilot.error">error (AutoPilot attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Module.events">events (Module attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.far_available">far_available (SpaceCenter attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.far_status">far_status (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Module.fields">fields (Module attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight">Flight (built-in class)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="extending.html#GameScene.Flight">(GameScene attribute)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/vessel.html#Vessel.flight">flight() (Vessel method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.forward">forward (Control attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.fuel_lines_from">fuel_lines_from (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.fuel_lines_to">fuel_lines_to (Part attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.g">g (SpaceCenter attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.g_force">g_force (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="extending.html#GameScene">GameScene (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.gear">gear (Control attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.get_action_group">get_action_group() (Control method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Module.get_field">get_field() (Module method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#Engine.gimbal_limit">gimbal_limit (Engine attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Engine.gimbal_locked">gimbal_locked (Engine attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Engine.gimbal_range">gimbal_range (Engine attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Engine.gimballed">gimballed (Engine attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.gravitational_parameter">gravitational_parameter (CelestialBody attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#Module.has_action">has_action() (Module method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.has_atmosphere">has_atmosphere (CelestialBody attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.has_atmospheric_oxygen">has_atmospheric_oxygen (CelestialBody attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/comms.html#Comms.has_connection">has_connection (Comms attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/comms.html#Comms.has_connection_to_ground_station">has_connection_to_ground_station (Comms attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Module.has_event">has_event() (Module method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Module.has_field">has_field() (Module method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/comms.html#Comms.has_flight_computer">has_flight_computer (Comms attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Engine.has_fuel">has_fuel (Engine attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#PartResources.has_resource">has_resource() (PartResources method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/vessel-resources.html#VesselResources.has_resource">(VesselResources method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#DockingPort.has_shield">has_shield (DockingPort attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.heading">heading (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.horizontal_speed">horizontal_speed (Flight attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#Part.impact_tolerance">impact_tolerance (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Decoupler.impulse">impulse (Decoupler attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.in_decouple_stage">in_decouple_stage() (Parts method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#Parts.in_stage">in_stage() (Parts method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.inclination">inclination (Orbit attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#Engine.kerbin_sea_level_specific_impulse">kerbin_sea_level_specific_impulse (Engine attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/vessel.html#Vessel.kerbin_sea_level_specific_impulse">(Vessel attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="extending.html#KRPCClass">KRPCClass (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="extending.html#KRPCEnum">KRPCEnum (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="extending.html#KRPCMethod">KRPCMethod (built-in class)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="extending.html#KRPCProcedure">KRPCProcedure (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="extending.html#KRPCProperty">KRPCProperty (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="extending.html#KRPCService">KRPCService (built-in class)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#Part.landing_gear">landing_gear (Part attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#Parts.landing_gear">(Parts attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#Part.landing_leg">landing_leg (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.landing_legs">landing_legs (Parts attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LandingGear">LandingGear (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LandingGearState">LandingGearState (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LandingGearState.deployed">LandingGearState.deployed (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LandingGearState.deploying">LandingGearState.deploying (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LandingGearState.retracted">LandingGearState.retracted (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LandingGearState.retracting">LandingGearState.retracting (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LandingLeg">LandingLeg (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LandingLegState">LandingLegState (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LandingLegState.broken">LandingLegState.broken (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LandingLegState.deployed">LandingLegState.deployed (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LandingLegState.deploying">LandingLegState.deploying (built-in variable)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#LandingLegState.repairing">LandingLegState.repairing (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LandingLegState.retracted">LandingLegState.retracted (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LandingLegState.retracting">LandingLegState.retracting (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.latitude">latitude (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.launch_clamp">launch_clamp (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.launch_clamps">launch_clamps (Parts attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LaunchClamp">LaunchClamp (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.lift">lift (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.lift_coefficient">lift_coefficient (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Light">Light (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.light">light (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.lights">lights (Control attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#Parts.lights">(Parts attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/flight.html#Flight.longitude">longitude (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.longitude_of_ascending_node">longitude_of_ascending_node (Orbit attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/flight.html#Flight.mach">mach (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.mass">mass (CelestialBody attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#Part.mass">(Part attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/vessel.html#Vessel.mass">(Vessel attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#Part.massless">massless (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#PartResources.max">max() (PartResources method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/vessel-resources.html#VesselResources.max">(VesselResources method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#Part.max_temperature">max_temperature (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Engine.max_thrust">max_thrust (Engine attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/vessel.html#Vessel.max_thrust">(Vessel attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#Engine.max_vacuum_thrust">max_vacuum_thrust (Engine attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/vessel.html#Vessel.max_vacuum_thrust">(Vessel attribute)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/flight.html#Flight.mean_altitude">mean_altitude (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.mean_anomaly">mean_anomaly (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.mean_anomaly_at_epoch">mean_anomaly_at_epoch (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#Vessel.met">met (Vessel attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Module">Module (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.modules">modules (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.modules_with_name">modules_with_name() (Parts method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.name">name (CelestialBody attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#DockingPort.name">(DockingPort attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#Module.name">(Module attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#Part.name">(Part attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/vessel.html#Vessel.name">(Vessel attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#PartResources.names">names (PartResources attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/vessel-resources.html#VesselResources.names">(VesselResources attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/orbit.html#Orbit.next_orbit">next_orbit (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/node.html#Node">Node (built-in class)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/control.html#Control.nodes">nodes (Control attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.non_rotating_reference_frame">non_rotating_reference_frame (CelestialBody attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.normal">normal (Flight attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/node.html#Node.normal">(Node attribute)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/orbit.html#Orbit">Orbit (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.orbit">orbit (CelestialBody attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/node.html#Node.orbit">(Node attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/vessel.html#Vessel.orbit">(Vessel attribute)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.orbital_reference_frame">orbital_reference_frame (CelestialBody attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/node.html#Node.orbital_reference_frame">(Node attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/vessel.html#Vessel.orbital_reference_frame">(Vessel attribute)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#Parachute">Parachute (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.parachute">parachute (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.parachutes">parachutes (Parts attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#ParachuteState">ParachuteState (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.parent">parent (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part">Part (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Decoupler.part">part (Decoupler attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#DockingPort.part">(DockingPort attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#Engine.part">(Engine attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#LandingGear.part">(LandingGear attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#LandingLeg.part">(LandingLeg attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#LaunchClamp.part">(LaunchClamp attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#Light.part">(Light attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#Module.part">(Module attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#Parachute.part">(Parachute attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#ReactionWheel.part">(ReactionWheel attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#Sensor.part">(Sensor attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#SolarPanel.part">(SolarPanel attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#PartResources">PartResources (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts">Parts (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#Vessel.parts">parts (Vessel attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/orbit.html#Orbit.periapsis">periapsis (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.periapsis_altitude">periapsis_altitude (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.period">period (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.pitch">pitch (Control attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/flight.html#Flight.pitch">(Flight attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#ReactionWheel.pitch_torque">pitch_torque (ReactionWheel attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.pitching_moment_coefficient">pitching_moment_coefficient (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.position">position() (CelestialBody method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#DockingPort.position">(DockingPort method)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/node.html#Node.position">(Node method)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#Part.position">(Part method)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/vessel.html#Vessel.position">(Vessel method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#Light.power_usage">power_usage (Light attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#Sensor.power_usage">(Sensor attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/flight.html#Flight.prograde">prograde (Flight attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/node.html#Node.prograde">(Node attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#Engine.propellants">propellants (Engine attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/geometry-types.html#Quaternion">Quaternion (built-in class)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/flight.html#Flight.radial">radial (Flight attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/node.html#Node.radial">(Node attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#Part.radially_attached">radially_attached (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.radius">radius (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.rcs">rcs (Control attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.reaction_wheel">reaction_wheel (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.reaction_wheels">reaction_wheels (Parts attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#ReactionWheel">ReactionWheel (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#DockingPort.reengage_distance">reengage_distance (DockingPort attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.reference_frame">reference_frame (CelestialBody attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#DockingPort.reference_frame">(DockingPort attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/node.html#Node.reference_frame">(Node attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#Part.reference_frame">(Part attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/vessel.html#Vessel.reference_frame">(Vessel attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/orbit.html#Orbit.reference_plane_direction">reference_plane_direction() (Orbit method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.reference_plane_normal">reference_plane_normal() (Orbit method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/reference-frame.html#ReferenceFrame">ReferenceFrame (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#LaunchClamp.release">release() (LaunchClamp method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/node.html#Node.remaining_burn_vector">remaining_burn_vector() (Node method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/node.html#Node.remaining_delta_v">remaining_delta_v (Node attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.remote_tech_available">remote_tech_available (SpaceCenter attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/node.html#Node.remove">remove() (Node method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.remove_nodes">remove_nodes() (Control method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.resources">resources (Part attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/vessel.html#Vessel.resources">(Vessel attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/flight.html#Flight.retrograde">retrograde (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.right">right (Control attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.roll">roll (Control attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/flight.html#Flight.roll">(Flight attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/auto-pilot.html#AutoPilot.roll_error">roll_error (AutoPilot attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#ReactionWheel.roll_torque">roll_torque (ReactionWheel attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.root">root (Parts attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.rotation">rotation (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.rotation">rotation() (CelestialBody method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#DockingPort.rotation">(DockingPort method)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#Part.rotation">(Part method)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/vessel.html#Vessel.rotation">(Vessel method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.rotational_period">rotational_period (CelestialBody attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.rotational_speed">rotational_speed (CelestialBody attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/auto-pilot.html#AutoPilot.sas">sas (AutoPilot attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/control.html#Control.sas">(Control attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/auto-pilot.html#AutoPilot.sas_mode">sas_mode (AutoPilot attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SASMode">SASMode (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SASMode.anti_normal">SASMode.anti_normal (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SASMode.anti_radial">SASMode.anti_radial (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SASMode.anti_target">SASMode.anti_target (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SASMode.maneuver">SASMode.maneuver (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SASMode.normal">SASMode.normal (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SASMode.prograde">SASMode.prograde (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SASMode.radial">SASMode.radial (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SASMode.retrograde">SASMode.retrograde (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SASMode.stability_assist">SASMode.stability_assist (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SASMode.target">SASMode.target (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.satellites">satellites (CelestialBody attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#ParachuteState.semi_deployed">semi_deployed (ParachuteState attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.semi_major_axis">semi_major_axis (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.semi_minor_axis">semi_minor_axis (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Sensor">Sensor (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.sensor">sensor (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.sensors">sensors (Parts attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Module.set_action">set_action() (Module method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.set_action_group">set_action_group() (Control method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#AutoPilot.set_direction">set_direction() (AutoPilot method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#AutoPilot.set_rotation">set_rotation() (AutoPilot method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#DockingPort.shielded">shielded (DockingPort attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.sideslip_angle">sideslip_angle (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/comms.html#Comms.signal_delay">signal_delay (Comms attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/comms.html#Comms.signal_delay_to_ground_station">signal_delay_to_ground_station (Comms attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/comms.html#Comms.signal_delay_to_vessel">signal_delay_to_vessel() (Comms method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#Vessel.situation">situation (Vessel attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#Part.solar_panel">solar_panel (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.solar_panels">solar_panels (Parts attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#SolarPanel">SolarPanel (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#SolarPanelState">SolarPanelState (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#SolarPanelState.broken">SolarPanelState.broken (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#SolarPanelState.extended">SolarPanelState.extended (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#SolarPanelState.extending">SolarPanelState.extending (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#SolarPanelState.retracted">SolarPanelState.retracted (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#SolarPanelState.retracting">SolarPanelState.retracting (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter">SpaceCenter (built-in class)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="extending.html#GameScene.SpaceCenter">(GameScene attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#Engine.specific_impulse">specific_impulse (Engine attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/vessel.html#Vessel.specific_impulse">(Vessel attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/flight.html#Flight.speed">speed (Flight attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/orbit.html#Orbit.speed">(Orbit attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/auto-pilot.html#AutoPilot.speed_mode">speed_mode (AutoPilot attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.speed_of_sound">speed_of_sound (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SpeedMode">SpeedMode (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SpeedMode.orbit">SpeedMode.orbit (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SpeedMode.surface">SpeedMode.surface (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/auto-pilot.html#SpeedMode.target">SpeedMode.target (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.sphere_of_influence">sphere_of_influence (CelestialBody attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.stage">stage (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.stall_fraction">stall_fraction (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#DockingPort.state">state (DockingPort attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#LandingGear.state">(LandingGear attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#LandingLeg.state">(LandingLeg attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#Parachute.state">(Parachute attribute)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/parts.html#SolarPanel.state">(SolarPanel attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/flight.html#Flight.static_air_temperature">static_air_temperature (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.static_pressure">static_pressure (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#ParachuteState.stowed">stowed (ParachuteState attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#SolarPanel.sun_exposure">sun_exposure (SolarPanel attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.surface_altitude">surface_altitude (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.surface_gravity">surface_gravity (CelestialBody attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#Vessel.surface_reference_frame">surface_reference_frame (Vessel attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#Vessel.surface_velocity_reference_frame">surface_velocity_reference_frame (Vessel attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/vessel.html#Vessel.target">target (Vessel attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.target_body">target_body (SpaceCenter attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.target_docking_port">target_docking_port (SpaceCenter attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.target_vessel">target_vessel (SpaceCenter attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.temperature">temperature (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.terminal_velocity">terminal_velocity (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.throttle">throttle (Control attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#Engine.throttle">(Engine attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#Engine.throttle_locked">throttle_locked (Engine attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Engine.thrust">thrust (Engine attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/vessel.html#Vessel.thrust">(Vessel attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#Engine.thrust_limit">thrust_limit (Engine attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.thrust_specific_fuel_consumption">thrust_specific_fuel_consumption (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/node.html#Node.time_to">time_to (Node attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.time_to_apoapsis">time_to_apoapsis (Orbit attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/orbit.html#Orbit.time_to_periapsis">time_to_periapsis (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/orbit.html#Orbit.time_to_soi_change">time_to_soi_change (Orbit attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.title">title (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.toggle_action_group">toggle_action_group() (Control method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.total_air_temperature">total_air_temperature (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="extending.html#GameScene.TrackingStation">TrackingStation (GameScene attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.transform_direction">transform_direction() (SpaceCenter method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.transform_position">transform_position() (SpaceCenter method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.transform_rotation">transform_rotation() (SpaceCenter method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.transform_velocity">transform_velocity() (SpaceCenter method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Module.trigger_event">trigger_event() (Module method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#Vessel.type">type (Vessel attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#DockingPort.undock">undock() (DockingPort method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.up">up (Control attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/node.html#Node.ut">ut (Node attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/space-center.html#SpaceCenter.ut">(SpaceCenter attribute)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#Engine.vacuum_specific_impulse">vacuum_specific_impulse (Engine attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/vessel.html#Vessel.vacuum_specific_impulse">(Vessel attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/parts.html#Sensor.value">value (Sensor attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/geometry-types.html#Vector3">Vector3 (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/flight.html#Flight.velocity">velocity (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/celestial-body.html#CelestialBody.velocity">velocity() (CelestialBody method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="python-api/parts.html#Part.velocity">(Part method)</a>
+  </dt>
+
+        
+  <dt><a href="python-api/vessel.html#Vessel.velocity">(Vessel method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="python-api/flight.html#Flight.vertical_speed">vertical_speed (Flight attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#Vessel">Vessel (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Part.vessel">vessel (Part attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel-resources.html#VesselResources">VesselResources (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.vessels">vessels (SpaceCenter attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselSituation">VesselSituation (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselSituation.docked">VesselSituation.docked (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselSituation.escaping">VesselSituation.escaping (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselSituation.flying">VesselSituation.flying (built-in variable)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/vessel.html#VesselSituation.landed">VesselSituation.landed (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselSituation.orbiting">VesselSituation.orbiting (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselSituation.pre_launch">VesselSituation.pre_launch (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselSituation.splashed">VesselSituation.splashed (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselSituation.sub_orbital">VesselSituation.sub_orbital (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselType">VesselType (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselType.base">VesselType.base (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselType.debris">VesselType.debris (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselType.lander">VesselType.lander (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselType.probe">VesselType.probe (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselType.rover">VesselType.rover (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselType.ship">VesselType.ship (built-in variable)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/vessel.html#VesselType.station">VesselType.station (built-in variable)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/space-center.html#SpaceCenter.warp_to">warp_to() (SpaceCenter method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.wheel_steering">wheel_steering (Control attribute)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/control.html#Control.wheel_throttle">wheel_throttle (Control attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#Parts.with_module">with_module() (Parts method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.with_name">with_name() (Parts method)</a>
+  </dt>
+
+      
+  <dt><a href="python-api/parts.html#Parts.with_title">with_title() (Parts method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="Y">Y</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/control.html#Control.yaw">yaw (Control attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="python-api/parts.html#ReactionWheel.yaw_torque">yaw_torque (ReactionWheel attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, djungelorm.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61341323-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,2897 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parts &mdash; kRPC 0.1.8 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="kRPC 0.1.8 documentation" href="../index.html"/>
+        <link rel="up" title="Python API" href="../python-api.html"/>
+        <link rel="next" title="Node" href="node.html"/>
+        <link rel="prev" title="Vessel Resources" href="vessel-resources.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> kRPC</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#the-python-client">The Python Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#hello-world-script">&#8216;Hello World&#8217; Script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials and Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/suborbital-flight.html">Sub-Orbital Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/launch-into-orbit.html">Launch into Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/pitch-heading-roll.html">Pitch, Heading and Roll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/parts.html">Interacting with Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/docking-guidance.html">Docking Guidance</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../python-api.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="space-center.html">SpaceCenter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vessel.html">Vessel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celestial-body.html">CelestialBody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flight.html">Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orbit.html">Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control.html">Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vessel-resources.html">Vessel Resources</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comms.html">Comms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frame.html">ReferenceFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto-pilot.html">AutoPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry-types.html">Geometry Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../compiling.html">Compiling kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../compiling.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../compiling.html#the-python-client-library">The Python Client Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../extending.html">Extending kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending.html#the-krpc-architecture">The kRPC Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending.html#service-api">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending.html#further-examples">Further Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../communication-protocol.html">Communication Protocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#establishing-a-connection">Establishing a connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#remote-procedures">Remote Procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#protocol-buffer-encoding">Protocol Buffer Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#streams">Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#krpc-service">KRPC Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#service-description-message">Service Description Message</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">kRPC</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../python-api.html">Python API</a> &raquo;</li>
+      
+    <li>Parts</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/python-api/parts.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="parts">
+<span id="api-parts"></span><h1>Parts<a class="headerlink" href="#parts" title="Permalink to this headline">¶</a></h1>
+<p>The following classes allow interaction with a vessels individual parts.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id3">Parts</a></li>
+<li><a class="reference internal" href="#part" id="id4">Part</a></li>
+<li><a class="reference internal" href="#module" id="id5">Module</a></li>
+<li><a class="reference internal" href="#partresources" id="id6">PartResources</a></li>
+<li><a class="reference internal" href="#specific-types-of-part" id="id7">Specific Types of Part</a><ul>
+<li><a class="reference internal" href="#decoupler" id="id8">Decoupler</a></li>
+<li><a class="reference internal" href="#docking-port" id="id9">Docking Port</a></li>
+<li><a class="reference internal" href="#engine" id="id10">Engine</a></li>
+<li><a class="reference internal" href="#landing-gear" id="id11">Landing Gear</a></li>
+<li><a class="reference internal" href="#landing-leg" id="id12">Landing Leg</a></li>
+<li><a class="reference internal" href="#launch-clamp" id="id13">Launch Clamp</a></li>
+<li><a class="reference internal" href="#light" id="id14">Light</a></li>
+<li><a class="reference internal" href="#parachute" id="id15">Parachute</a></li>
+<li><a class="reference internal" href="#reaction-wheel" id="id16">Reaction Wheel</a></li>
+<li><a class="reference internal" href="#sensor" id="id17">Sensor</a></li>
+<li><a class="reference internal" href="#solar-panel" id="id18">Solar Panel</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#trees-of-parts" id="id19">Trees of Parts</a><ul>
+<li><a class="reference internal" href="#traversing-the-tree" id="id20">Traversing the Tree</a></li>
+<li><a class="reference internal" href="#attachment-modes" id="id21">Attachment Modes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fuel-lines" id="id22">Fuel Lines</a></li>
+<li><a class="reference internal" href="#staging" id="id23">Staging</a></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id3">Parts</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Parts">
+<em class="property">class </em><tt class="descname">Parts</tt><a class="headerlink" href="#Parts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instances of this class are used to interact with the parts of a vessel. An
+instance can be obtained by calling <a class="reference internal" href="vessel.html#Vessel.parts" title="Vessel.parts"><tt class="xref py py-attr docutils literal"><span class="pre">Vessel.parts</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="Parts.all">
+<tt class="descname">all</tt><a class="headerlink" href="#Parts.all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all of the vessels parts.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parts.root">
+<tt class="descname">root</tt><a class="headerlink" href="#Parts.root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the vessels root part.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the discussion on <a class="reference internal" href="#api-parts-trees-of-parts"><em>Trees of Parts</em></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parts.controlling">
+<tt class="descname">controlling</tt><a class="headerlink" href="#Parts.controlling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the part from which the vessel is controlled.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Parts.with_name">
+<tt class="descname">with_name</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#Parts.with_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of parts whose <a class="reference internal" href="#Part.name" title="Part.name"><tt class="xref py py-attr docutils literal"><span class="pre">Part.name</span></tt></a> is <em>name</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string</em>) &#8211; The name of the parts</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Parts.with_title">
+<tt class="descname">with_title</tt><big>(</big><em>title</em><big>)</big><a class="headerlink" href="#Parts.with_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all parts whose <a class="reference internal" href="#Part.title" title="Part.title"><tt class="xref py py-attr docutils literal"><span class="pre">Part.title</span></tt></a> is <em>title</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>title</strong> (<em>string</em>) &#8211; The title of the parts</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Parts.with_module">
+<tt class="descname">with_module</tt><big>(</big><em>module_name</em><big>)</big><a class="headerlink" href="#Parts.with_module" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all parts that contain a <a class="reference internal" href="#Module" title="Module"><tt class="xref py py-class docutils literal"><span class="pre">Module</span></tt></a> whose
+<a class="reference internal" href="#Module.name" title="Module.name"><tt class="xref py py-attr docutils literal"><span class="pre">Module.name</span></tt></a> is <em>module_name</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>module_name</strong> (<em>string</em>) &#8211; The module name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Parts.in_stage">
+<tt class="descname">in_stage</tt><big>(</big><em>stage</em><big>)</big><a class="headerlink" href="#Parts.in_stage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all parts that are activated in the given <em>stage</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stage</strong> (<em>int</em>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the discussion on <a class="reference internal" href="#api-parts-staging"><em>Staging</em></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Parts.in_decouple_stage">
+<tt class="descname">in_decouple_stage</tt><big>(</big><em>stage</em><big>)</big><a class="headerlink" href="#Parts.in_decouple_stage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all parts that are decoupled in the given <em>stage</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stage</strong> (<em>int</em>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the discussion on <a class="reference internal" href="#api-parts-staging"><em>Staging</em></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Parts.modules_with_name">
+<tt class="descname">modules_with_name</tt><big>(</big><em>module_name</em><big>)</big><a class="headerlink" href="#Parts.modules_with_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of modules (combined across all parts in the vessel) whose
+<a class="reference internal" href="#Module.name" title="Module.name"><tt class="xref py py-attr docutils literal"><span class="pre">Module.name</span></tt></a> is <em>module_name</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>module_name</strong> (<em>string</em>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#Module" title="Module"><tt class="xref py py-class docutils literal"><span class="pre">Module</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parts.decouplers">
+<tt class="descname">decouplers</tt><a class="headerlink" href="#Parts.decouplers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all decouplers in the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#Decoupler" title="Decoupler"><tt class="xref py py-class docutils literal"><span class="pre">Decoupler</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parts.docking_ports">
+<tt class="descname">docking_ports</tt><a class="headerlink" href="#Parts.docking_ports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all docking ports in the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#DockingPort" title="DockingPort"><tt class="xref py py-class docutils literal"><span class="pre">DockingPort</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Parts.docking_port_with_name">
+<tt class="descname">docking_port_with_name</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#Parts.docking_port_with_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the first docking port in the vessel with the given port name, as
+returned by <a class="reference internal" href="#DockingPort.name" title="DockingPort.name"><tt class="xref py py-attr docutils literal"><span class="pre">DockingPort.name</span></tt></a>. Returns <tt class="docutils literal"><span class="pre">None</span></tt> if there are no
+such docking ports.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string</em>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#DockingPort" title="DockingPort"><tt class="xref py py-class docutils literal"><span class="pre">DockingPort</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parts.engines">
+<tt class="descname">engines</tt><a class="headerlink" href="#Parts.engines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all engines in the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#Engine" title="Engine"><tt class="xref py py-class docutils literal"><span class="pre">Engine</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parts.landing_gear">
+<tt class="descname">landing_gear</tt><a class="headerlink" href="#Parts.landing_gear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all landing gear attached to the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#LandingGear" title="LandingGear"><tt class="xref py py-class docutils literal"><span class="pre">LandingGear</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parts.landing_legs">
+<tt class="descname">landing_legs</tt><a class="headerlink" href="#Parts.landing_legs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all landing legs attached to the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#LandingLeg" title="LandingLeg"><tt class="xref py py-class docutils literal"><span class="pre">LandingLeg</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parts.launch_clamps">
+<tt class="descname">launch_clamps</tt><a class="headerlink" href="#Parts.launch_clamps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all launch clamps attached to the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#LaunchClamp" title="LaunchClamp"><tt class="xref py py-class docutils literal"><span class="pre">LaunchClamp</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parts.lights">
+<tt class="descname">lights</tt><a class="headerlink" href="#Parts.lights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all lights in the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#Light" title="Light"><tt class="xref py py-class docutils literal"><span class="pre">Light</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parts.parachutes">
+<tt class="descname">parachutes</tt><a class="headerlink" href="#Parts.parachutes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all parachutes in the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#Parachute" title="Parachute"><tt class="xref py py-class docutils literal"><span class="pre">Parachute</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parts.reaction_wheels">
+<tt class="descname">reaction_wheels</tt><a class="headerlink" href="#Parts.reaction_wheels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all reaction wheels in the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#ReactionWheel" title="ReactionWheel"><tt class="xref py py-class docutils literal"><span class="pre">ReactionWheel</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parts.sensors">
+<tt class="descname">sensors</tt><a class="headerlink" href="#Parts.sensors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all sensors in the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#Sensor" title="Sensor"><tt class="xref py py-class docutils literal"><span class="pre">Sensor</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parts.solar_panels">
+<tt class="descname">solar_panels</tt><a class="headerlink" href="#Parts.solar_panels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all solar panels in the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#SolarPanel" title="SolarPanel"><tt class="xref py py-class docutils literal"><span class="pre">SolarPanel</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="part">
+<h2><a class="toc-backref" href="#id4">Part</a><a class="headerlink" href="#part" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Part">
+<em class="property">class </em><tt class="descname">Part</tt><a class="headerlink" href="#Part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instances of this class represents a part. A vessel is made of multiple
+parts. Instances can be obtained by various methods in <a class="reference internal" href="#Parts" title="Parts"><tt class="xref py py-class docutils literal"><span class="pre">Parts</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="Part.name">
+<tt class="descname">name</tt><a class="headerlink" href="#Part.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Internal name of the part, as used in <a class="reference external" href="http://wiki.kerbalspaceprogram.com/wiki/CFG_File_Documentation">part cfg files</a>. For
+example &#8220;Mark1-2Pod&#8221;.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.title">
+<tt class="descname">title</tt><a class="headerlink" href="#Part.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Title of the part, as shown when the part is right clicked in-game. For
+example &#8220;Mk1-2 Command Pod&#8221;.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.cost">
+<tt class="descname">cost</tt><a class="headerlink" href="#Part.cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the cost of the part, in units of funds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.vessel">
+<tt class="descname">vessel</tt><a class="headerlink" href="#Part.vessel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the vessel that contains this part.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="vessel.html#Vessel" title="Vessel"><tt class="xref py py-class docutils literal"><span class="pre">Vessel</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.parent">
+<tt class="descname">parent</tt><a class="headerlink" href="#Part.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the parts parent. Returns <tt class="docutils literal"><span class="pre">None</span></tt> if the part does not have a
+parent. This, in combination with <a class="reference internal" href="#Part.children" title="Part.children"><tt class="xref py py-attr docutils literal"><span class="pre">Part.children</span></tt></a>, can be used to
+traverse the vessels parts tree.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the discussion on <a class="reference internal" href="#api-parts-trees-of-parts"><em>Trees of Parts</em></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.children">
+<tt class="descname">children</tt><a class="headerlink" href="#Part.children" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the parts children. Returns an empty list if the part has no
+children. This, in combination with <a class="reference internal" href="#Part.parent" title="Part.parent"><tt class="xref py py-attr docutils literal"><span class="pre">Part.parent</span></tt></a>, can be used to
+traverse the vessels parts tree.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the discussion on <a class="reference internal" href="#api-parts-trees-of-parts"><em>Trees of Parts</em></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.axially_attached">
+<tt class="descname">axially_attached</tt><a class="headerlink" href="#Part.axially_attached" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets whether the part is <em>axially</em> attached to its parent, i.e. on the top
+or bottom of its parent. If the part has no parent, returns <tt class="docutils literal"><span class="pre">False</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the discussion on <a class="reference internal" href="#api-parts-attachment-modes"><em>Attachment Modes</em></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.radially_attached">
+<tt class="descname">radially_attached</tt><a class="headerlink" href="#Part.radially_attached" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets whether the part is <em>radially</em> attached to its parent, i.e. on the
+side of its parent. If the part has no parent, returns <tt class="docutils literal"><span class="pre">False</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the discussion on <a class="reference internal" href="#api-parts-attachment-modes"><em>Attachment Modes</em></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.stage">
+<tt class="descname">stage</tt><a class="headerlink" href="#Part.stage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the stage in which this part will be activated. Returns -1 if the
+part is not activated by staging.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int32</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the discussion on <a class="reference internal" href="#api-parts-staging"><em>Staging</em></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.decouple_stage">
+<tt class="descname">decouple_stage</tt><a class="headerlink" href="#Part.decouple_stage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the stage in which this part will be decoupled. Returns -1 if the
+part is never decoupled from the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int32</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the discussion on <a class="reference internal" href="#api-parts-staging"><em>Staging</em></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.massless">
+<tt class="descname">massless</tt><a class="headerlink" href="#Part.massless" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets whether the part is <a class="reference external" href="http://wiki.kerbalspaceprogram.com/wiki/Massless_part">&#8220;massless&#8221;</a> &#8211; returning
+<tt class="docutils literal"><span class="pre">True</span></tt> if it is, <tt class="docutils literal"><span class="pre">False</span></tt> otherwise.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.mass">
+<tt class="descname">mass</tt><a class="headerlink" href="#Part.mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current mass of the part, including resources it contains, in
+kilograms. Returns zero if the part is massless.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.dry_mass">
+<tt class="descname">dry_mass</tt><a class="headerlink" href="#Part.dry_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the mass of the part, not including any resources it contains, in
+kilograms. Returns zero if the part is massless.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.impact_tolerance">
+<tt class="descname">impact_tolerance</tt><a class="headerlink" href="#Part.impact_tolerance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the impact tolerance of the part, in meters per second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.temperature">
+<tt class="descname">temperature</tt><a class="headerlink" href="#Part.temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current temperature of the part, in Kelvin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.max_temperature">
+<tt class="descname">max_temperature</tt><a class="headerlink" href="#Part.max_temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the maximum temperature that the part can survive, in Kelvin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.resources">
+<tt class="descname">resources</tt><a class="headerlink" href="#Part.resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a resources object for the part.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#PartResources" title="PartResources"><tt class="xref py py-class docutils literal"><span class="pre">PartResources</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.crossfeed">
+<tt class="descname">crossfeed</tt><a class="headerlink" href="#Part.crossfeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets whether this part is crossfeed capable.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.fuel_lines_from">
+<tt class="descname">fuel_lines_from</tt><a class="headerlink" href="#Part.fuel_lines_from" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the list of parts that are connected to this part via fuel lines,
+where the direction of the fuel line is <em>into</em> this part.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the discussion on <a class="reference internal" href="#api-parts-fuel-lines"><em>Fuel Lines</em></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.fuel_lines_to">
+<tt class="descname">fuel_lines_to</tt><a class="headerlink" href="#Part.fuel_lines_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the list of parts that are connected to this part via fuel lines,
+where the direction of the fuel line is <em>out of</em> this part.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the discussion on <a class="reference internal" href="#api-parts-fuel-lines"><em>Fuel Lines</em></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.modules">
+<tt class="descname">modules</tt><a class="headerlink" href="#Part.modules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the modules for this part.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( <a class="reference internal" href="#Module" title="Module"><tt class="xref py py-class docutils literal"><span class="pre">Module</span></tt></a> )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.decoupler">
+<tt class="descname">decoupler</tt><a class="headerlink" href="#Part.decoupler" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#Decoupler" title="Decoupler"><tt class="xref py py-class docutils literal"><span class="pre">Decoupler</span></tt></a> if the part is a decoupler, otherwise <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Decoupler" title="Decoupler"><tt class="xref py py-class docutils literal"><span class="pre">Decoupler</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.docking_port">
+<tt class="descname">docking_port</tt><a class="headerlink" href="#Part.docking_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#DockingPort" title="DockingPort"><tt class="xref py py-class docutils literal"><span class="pre">DockingPort</span></tt></a> if the part is a docking port, otherwise <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#DockingPort" title="DockingPort"><tt class="xref py py-class docutils literal"><span class="pre">DockingPort</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.engine">
+<tt class="descname">engine</tt><a class="headerlink" href="#Part.engine" title="Permalink to this definition">¶</a></dt>
+<dd><p>An <a class="reference internal" href="#Engine" title="Engine"><tt class="xref py py-class docutils literal"><span class="pre">Engine</span></tt></a> if the part is an engine, otherwise <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Engine" title="Engine"><tt class="xref py py-class docutils literal"><span class="pre">Engine</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.landing_gear">
+<tt class="descname">landing_gear</tt><a class="headerlink" href="#Part.landing_gear" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#LandingGear" title="LandingGear"><tt class="xref py py-class docutils literal"><span class="pre">LandingGear</span></tt></a> if the part is landing gear, otherwise <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#LandingGear" title="LandingGear"><tt class="xref py py-class docutils literal"><span class="pre">LandingGear</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.landing_leg">
+<tt class="descname">landing_leg</tt><a class="headerlink" href="#Part.landing_leg" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#LandingLeg" title="LandingLeg"><tt class="xref py py-class docutils literal"><span class="pre">LandingLeg</span></tt></a> if the part is a landing leg, otherwise <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#LandingLeg" title="LandingLeg"><tt class="xref py py-class docutils literal"><span class="pre">LandingLeg</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.launch_clamp">
+<tt class="descname">launch_clamp</tt><a class="headerlink" href="#Part.launch_clamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#LaunchClamp" title="LaunchClamp"><tt class="xref py py-class docutils literal"><span class="pre">LaunchClamp</span></tt></a> if the part is a launch clamp, otherwise <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#LaunchClamp" title="LaunchClamp"><tt class="xref py py-class docutils literal"><span class="pre">LaunchClamp</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.light">
+<tt class="descname">light</tt><a class="headerlink" href="#Part.light" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#Light" title="Light"><tt class="xref py py-class docutils literal"><span class="pre">Light</span></tt></a> if the part is a light, otherwise <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Light" title="Light"><tt class="xref py py-class docutils literal"><span class="pre">Light</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.parachute">
+<tt class="descname">parachute</tt><a class="headerlink" href="#Part.parachute" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#Parachute" title="Parachute"><tt class="xref py py-class docutils literal"><span class="pre">Parachute</span></tt></a> if the part is a parachute, otherwise <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Parachute" title="Parachute"><tt class="xref py py-class docutils literal"><span class="pre">Parachute</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.reaction_wheel">
+<tt class="descname">reaction_wheel</tt><a class="headerlink" href="#Part.reaction_wheel" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#ReactionWheel" title="ReactionWheel"><tt class="xref py py-class docutils literal"><span class="pre">ReactionWheel</span></tt></a> if the part is a reaction wheel, otherwise <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ReactionWheel" title="ReactionWheel"><tt class="xref py py-class docutils literal"><span class="pre">ReactionWheel</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.sensor">
+<tt class="descname">sensor</tt><a class="headerlink" href="#Part.sensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#Sensor" title="Sensor"><tt class="xref py py-class docutils literal"><span class="pre">Sensor</span></tt></a> if the part is a sensor, otherwise <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Sensor" title="Sensor"><tt class="xref py py-class docutils literal"><span class="pre">Sensor</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.solar_panel">
+<tt class="descname">solar_panel</tt><a class="headerlink" href="#Part.solar_panel" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#SolarPanel" title="SolarPanel"><tt class="xref py py-class docutils literal"><span class="pre">SolarPanel</span></tt></a> if the part is a solar panel, otherwise <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#SolarPanel" title="SolarPanel"><tt class="xref py py-class docutils literal"><span class="pre">SolarPanel</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Part.position">
+<tt class="descname">position</tt><big>(</big><em>reference_frame</em><big>)</big><a class="headerlink" href="#Part.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the position of the part in the given reference frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Vector3" title="Vector3"><tt class="xref py py-class docutils literal"><span class="pre">Vector3</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Part.direction">
+<tt class="descname">direction</tt><big>(</big><em>reference_frame</em><big>)</big><a class="headerlink" href="#Part.direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the direction of the part in the given reference frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Vector3" title="Vector3"><tt class="xref py py-class docutils literal"><span class="pre">Vector3</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Part.velocity">
+<tt class="descname">velocity</tt><big>(</big><em>reference_frame</em><big>)</big><a class="headerlink" href="#Part.velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the velocity of the part in the given reference frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Vector3" title="Vector3"><tt class="xref py py-class docutils literal"><span class="pre">Vector3</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Part.rotation">
+<tt class="descname">rotation</tt><big>(</big><em>reference_frame</em><big>)</big><a class="headerlink" href="#Part.rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the rotation of the part in the given reference frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Quaternion" title="Quaternion"><tt class="xref py py-class docutils literal"><span class="pre">Quaternion</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Part.reference_frame">
+<tt class="descname">reference_frame</tt><a class="headerlink" href="#Part.reference_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the reference frame that is fixed relative to this part.</p>
+<ul class="simple">
+<li>The origin is at the position of the part.</li>
+<li>The axes rotate with the part.</li>
+<li>The x, y and z axis directions depend on the design of the part.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><tt class="xref py py-class docutils literal"><span class="pre">ReferenceFrame</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="figure align-center">
+<img alt="../_images/part.png" src="../_images/part.png" />
+<p class="caption">Mk1 Command Pod reference frame origin and axes</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For docking port parts, this reference frame is not necessarily
+equivalent to the reference frame for the docking port, returned
+by <a class="reference internal" href="#DockingPort.reference_frame" title="DockingPort.reference_frame"><tt class="xref py py-attr docutils literal"><span class="pre">DockingPort.reference_frame</span></tt></a>.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module">
+<h2><a class="toc-backref" href="#id5">Module</a><a class="headerlink" href="#module" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Module">
+<em class="property">class </em><tt class="descname">Module</tt><a class="headerlink" href="#Module" title="Permalink to this definition">¶</a></dt>
+<dd><p>In KSP, each part has zero or more <a class="reference external" href="http://wiki.kerbalspaceprogram.com/wiki/CFG_File_Documentation#MODULES&gt;`">PartModules</a> associated with it. Each
+one contains some of the functionality of the part. For example, an engine has
+a &#8220;ModuleEngines&#8221; PartModule that contains all the functionality of an
+engine.</p>
+<p>This class allows you to interact with KSPs PartModules, and any PartModules
+that have been added by other mods.</p>
+<dl class="attribute">
+<dt id="Module.name">
+<tt class="descname">name</tt><a class="headerlink" href="#Module.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the <a class="reference external" href="http://wiki.kerbalspaceprogram.com/wiki/CFG_File_Documentation#MODULES&gt;`">PartModule</a>.
+For example, &#8220;ModuleEngines&#8221;.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Module.part">
+<tt class="descname">part</tt><a class="headerlink" href="#Module.part" title="Permalink to this definition">¶</a></dt>
+<dd><p>The part that contains this module.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Module.fields">
+<tt class="descname">fields</tt><a class="headerlink" href="#Module.fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>The modules field names and their associated values, as a
+dictionary. These are the values visible in the right-click menu of the
+part.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">dict</span></tt> ( string , string )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Module.has_field">
+<tt class="descname">has_field</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#Module.has_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the module has a field with the given name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string</em>) &#8211; name of the field</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Module.get_field">
+<tt class="descname">get_field</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#Module.get_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of a field.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string</em>) &#8211; name of the field</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Module.events">
+<tt class="descname">events</tt><a class="headerlink" href="#Module.events" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of the names of all of the modules events. Events are the clickable
+buttons visible in the right-click menu of the part.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( string )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Module.has_event">
+<tt class="descname">has_event</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#Module.has_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the module has an event with the given name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Module.trigger_event">
+<tt class="descname">trigger_event</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#Module.trigger_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trigger the named event. Equivalent to clicking the button in the
+right-click menu of the part.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Module.actions">
+<tt class="descname">actions</tt><a class="headerlink" href="#Module.actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of all the names of the modules actions. These are the parts actions that
+can be assigned to action groups in the in-game editor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( string )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Module.has_action">
+<tt class="descname">has_action</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#Module.has_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the part has an action with the given name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Module.set_action">
+<tt class="descname">set_action</tt><big>(</big><em>name</em><span class="optional">[</span>, <em>value=true</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#Module.set_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of an action with the given name.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="partresources">
+<h2><a class="toc-backref" href="#id6">PartResources</a><a class="headerlink" href="#partresources" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="PartResources">
+<em class="property">class </em><tt class="descname">PartResources</tt><a class="headerlink" href="#PartResources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to examine the resources stored in a part. An instance can be obtained
+via <a class="reference internal" href="#Part.resources" title="Part.resources"><tt class="xref py py-attr docutils literal"><span class="pre">Part.resources</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="PartResources.names">
+<tt class="descname">names</tt><a class="headerlink" href="#PartResources.names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of the resources that the part can store.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( string )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PartResources.has_resource">
+<tt class="descname">has_resource</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#PartResources.has_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets whether the part has the named resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string</em>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PartResources.max">
+<tt class="descname">max</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#PartResources.max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the maximum amount of the named resource that the part can store.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string</em>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PartResources.amount">
+<tt class="descname">amount</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#PartResources.amount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current amount of the named resource that the part is storing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string</em>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="specific-types-of-part">
+<h2><a class="toc-backref" href="#id7">Specific Types of Part</a><a class="headerlink" href="#specific-types-of-part" title="Permalink to this headline">¶</a></h2>
+<p>The following classes provide functionality for specific types of part.</p>
+<div class="contents local topic" id="id2">
+<ul class="simple">
+<li><a class="reference internal" href="#decoupler" id="id24">Decoupler</a></li>
+<li><a class="reference internal" href="#docking-port" id="id25">Docking Port</a></li>
+<li><a class="reference internal" href="#engine" id="id26">Engine</a></li>
+<li><a class="reference internal" href="#landing-gear" id="id27">Landing Gear</a></li>
+<li><a class="reference internal" href="#landing-leg" id="id28">Landing Leg</a></li>
+<li><a class="reference internal" href="#launch-clamp" id="id29">Launch Clamp</a></li>
+<li><a class="reference internal" href="#light" id="id30">Light</a></li>
+<li><a class="reference internal" href="#parachute" id="id31">Parachute</a></li>
+<li><a class="reference internal" href="#reaction-wheel" id="id32">Reaction Wheel</a></li>
+<li><a class="reference internal" href="#sensor" id="id33">Sensor</a></li>
+<li><a class="reference internal" href="#solar-panel" id="id34">Solar Panel</a></li>
+</ul>
+</div>
+<div class="section" id="decoupler">
+<h3><a class="toc-backref" href="#id24">Decoupler</a><a class="headerlink" href="#decoupler" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="Decoupler">
+<em class="property">class </em><tt class="descname">Decoupler</tt><a class="headerlink" href="#Decoupler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtained by calling <a class="reference internal" href="#Part.decoupler" title="Part.decoupler"><tt class="xref py py-attr docutils literal"><span class="pre">Part.decoupler</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="Decoupler.part">
+<tt class="descname">part</tt><a class="headerlink" href="#Decoupler.part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the part object for this decoupler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Decoupler.decouple">
+<tt class="descname">decouple</tt><big>(</big><big>)</big><a class="headerlink" href="#Decoupler.decouple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fires the decoupler. Has no effect if the decoupler has already fired.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Decoupler.decoupled">
+<tt class="descname">decoupled</tt><a class="headerlink" href="#Decoupler.decoupled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets whether the decoupler has fired.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Decoupler.impulse">
+<tt class="descname">impulse</tt><a class="headerlink" href="#Decoupler.impulse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the impulse, or momentum, that the decoupler imparts when it is
+fired, in Newton seconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="docking-port">
+<h3><a class="toc-backref" href="#id25">Docking Port</a><a class="headerlink" href="#docking-port" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="DockingPort">
+<em class="property">class </em><tt class="descname">DockingPort</tt><a class="headerlink" href="#DockingPort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtained by calling <a class="reference internal" href="#Part.docking_port" title="Part.docking_port"><tt class="xref py py-attr docutils literal"><span class="pre">Part.docking_port</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="DockingPort.part">
+<tt class="descname">part</tt><a class="headerlink" href="#DockingPort.part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the part object for this docking port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DockingPort.name">
+<tt class="descname">name</tt><a class="headerlink" href="#DockingPort.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the port name of the docking port. This is the name of the port that
+can be set in the right click menu, when the <a class="reference external" href="http://forum.kerbalspaceprogram.com/threads/43901-0-90-Docking-Port-Alignment-Indicator-%28Version-6-1-Updated-03-07-2015%29">Docking Port Alignment
+Indicator</a> mod is installed. If this mod is not installed, returns the
+title of the part (<a class="reference internal" href="#Part.title" title="Part.title"><tt class="xref py py-attr docutils literal"><span class="pre">Part.title</span></tt></a>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DockingPort.state">
+<tt class="descname">state</tt><a class="headerlink" href="#DockingPort.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current state of the docking port.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#DockingPortState" title="DockingPortState"><tt class="xref py py-class docutils literal"><span class="pre">DockingPortState</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DockingPort.docked_part">
+<tt class="descname">docked_part</tt><a class="headerlink" href="#DockingPort.docked_part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the part that this docking port is docked to. Returns <tt class="docutils literal"><span class="pre">None</span></tt> if
+this docking port is not docked to anything.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="DockingPort.undock">
+<tt class="descname">undock</tt><big>(</big><big>)</big><a class="headerlink" href="#DockingPort.undock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undocks the docking port and returns the vessel that was undocked
+from.</p>
+<p>Note that after undocking, the active vessel may change
+(<a class="reference internal" href="space-center.html#SpaceCenter.active_vessel" title="SpaceCenter.active_vessel"><tt class="xref py py-attr docutils literal"><span class="pre">SpaceCenter.active_vessel</span></tt></a>). This method can be called for either
+docking port in a docked pair &#8211; both calls will have the same
+effect. Returns <tt class="docutils literal"><span class="pre">None</span></tt> if the docking port is not docked to anything.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="vessel.html#Vessel" title="Vessel"><tt class="xref py py-class docutils literal"><span class="pre">Vessel</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DockingPort.reengage_distance">
+<tt class="descname">reengage_distance</tt><a class="headerlink" href="#DockingPort.reengage_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the distance a docking port must move away when it undocks before it
+becomes ready to dock with another port, in meters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DockingPort.has_shield">
+<tt class="descname">has_shield</tt><a class="headerlink" href="#DockingPort.has_shield" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets whether the docking port has a shield.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DockingPort.shielded">
+<tt class="descname">shielded</tt><a class="headerlink" href="#DockingPort.shielded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the state of the docking ports shield, if it has one.</p>
+<p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the docking port has a shield, and the shield is
+closed. Otherwise returns <tt class="docutils literal"><span class="pre">False</span></tt>. When set to <tt class="docutils literal"><span class="pre">True</span></tt>, the shield is
+closed, and when set to <tt class="docutils literal"><span class="pre">False</span></tt> the shield is opened. If the docking
+port does not have a shield, setting this attribute has no effect.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DockingPort.position">
+<tt class="descname">position</tt><big>(</big><em>reference_frame</em><big>)</big><a class="headerlink" href="#DockingPort.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the position of the docking port in the given reference frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Vector3" title="Vector3"><tt class="xref py py-class docutils literal"><span class="pre">Vector3</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="DockingPort.direction">
+<tt class="descname">direction</tt><big>(</big><em>reference_frame</em><big>)</big><a class="headerlink" href="#DockingPort.direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the direction that docking port points in, in the given reference
+frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Vector3" title="Vector3"><tt class="xref py py-class docutils literal"><span class="pre">Vector3</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="DockingPort.rotation">
+<tt class="descname">rotation</tt><big>(</big><em>reference_frame</em><big>)</big><a class="headerlink" href="#DockingPort.rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the rotation of the docking port, in the given reference frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Quaternion" title="Quaternion"><tt class="xref py py-class docutils literal"><span class="pre">Quaternion</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DockingPort.reference_frame">
+<tt class="descname">reference_frame</tt><a class="headerlink" href="#DockingPort.reference_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the reference frame that is fixed relative to this docking port, and
+oriented with the port.</p>
+<ul class="simple">
+<li>The origin is at the position of the docking port.</li>
+<li>The axes rotate with the docking port.</li>
+<li>The x-axis points out to the right side of the docking port.</li>
+<li>The y-axis points in the direction the docking port is facing.</li>
+<li>The z-axis points out of the bottom off the docking port.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><tt class="xref py py-class docutils literal"><span class="pre">ReferenceFrame</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="figure align-center">
+<img alt="../_images/docking-port.png" src="../_images/docking-port.png" />
+<p class="caption">Docking port reference frame origin and axes</p>
+</div>
+<div class="figure align-center">
+<img alt="../_images/docking-port-inline.png" src="../_images/docking-port-inline.png" />
+<p class="caption">Inline docking port reference frame origin and axes</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This reference frame is not necessarily equivalent to the
+reference frame for the part, returned by
+<a class="reference internal" href="#Part.reference_frame" title="Part.reference_frame"><tt class="xref py py-attr docutils literal"><span class="pre">Part.reference_frame</span></tt></a>.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="DockingPortState">
+<em class="property">class </em><tt class="descname">DockingPortState</tt><a class="headerlink" href="#DockingPortState" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="data">
+<dt id="DockingPortState.ready">
+<tt class="descname">ready</tt><a class="headerlink" href="#DockingPortState.ready" title="Permalink to this definition">¶</a></dt>
+<dd><p>The docking port is ready to dock to another docking port.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="DockingPortState.docked">
+<tt class="descname">docked</tt><a class="headerlink" href="#DockingPortState.docked" title="Permalink to this definition">¶</a></dt>
+<dd><p>The docking port is docked to another docking port, or docked to another
+part (from the VAB/SPH).</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="DockingPortState.docking">
+<tt class="descname">docking</tt><a class="headerlink" href="#DockingPortState.docking" title="Permalink to this definition">¶</a></dt>
+<dd><p>The docking port is very close to another docking port, but has not
+docked. It is using magnetic force to acquire a solid dock.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="DockingPortState.undocking">
+<tt class="descname">undocking</tt><a class="headerlink" href="#DockingPortState.undocking" title="Permalink to this definition">¶</a></dt>
+<dd><p>The docking port has just been undocked from another docking port, and is
+disabled until it moves away by a sufficient distance
+(<a class="reference internal" href="#DockingPort.reengage_distance" title="DockingPort.reengage_distance"><tt class="xref py py-attr docutils literal"><span class="pre">DockingPort.reengage_distance</span></tt></a>).</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="DockingPortState.shielded">
+<tt class="descname">shielded</tt><a class="headerlink" href="#DockingPortState.shielded" title="Permalink to this definition">¶</a></dt>
+<dd><p>The docking port has a shield, and the shield is closed.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="DockingPortState.moving">
+<tt class="descname">moving</tt><a class="headerlink" href="#DockingPortState.moving" title="Permalink to this definition">¶</a></dt>
+<dd><p>The docking ports shield is currently opening/closing.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="engine">
+<h3><a class="toc-backref" href="#id26">Engine</a><a class="headerlink" href="#engine" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="Engine">
+<em class="property">class </em><tt class="descname">Engine</tt><a class="headerlink" href="#Engine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtained by calling <a class="reference internal" href="#Part.engine" title="Part.engine"><tt class="xref py py-attr docutils literal"><span class="pre">Part.engine</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="Engine.part">
+<tt class="descname">part</tt><a class="headerlink" href="#Engine.part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the part object for this engine.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.active">
+<tt class="descname">active</tt><a class="headerlink" href="#Engine.active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets whether the engine is active. Setting this attribute may have
+no effect, depending on <a class="reference internal" href="#Engine.can_shutdown" title="Engine.can_shutdown"><tt class="xref py py-attr docutils literal"><span class="pre">Engine.can_shutdown</span></tt></a> and
+<a class="reference internal" href="#Engine.can_restart" title="Engine.can_restart"><tt class="xref py py-attr docutils literal"><span class="pre">Engine.can_restart</span></tt></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.thrust">
+<tt class="descname">thrust</tt><a class="headerlink" href="#Engine.thrust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current amount of thrust being produced by the engine, in
+Newtons. Returns zero if the engine is not active.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.available_thrust">
+<tt class="descname">available_thrust</tt><a class="headerlink" href="#Engine.available_thrust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the maximum available amount of thrust that can be produced by the
+engine, in Newtons. This takes <a class="reference internal" href="#Engine.thrust_limit" title="Engine.thrust_limit"><tt class="xref py py-attr docutils literal"><span class="pre">Engine.thrust_limit</span></tt></a> into account,
+and is the amount of thrust produced by the engine when activated and the
+main throttle is set to 100%.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.max_thrust">
+<tt class="descname">max_thrust</tt><a class="headerlink" href="#Engine.max_thrust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the maximum amount of thrust that can be produced by the engine, in
+Newtons. This is the amount of thrust produced by the engine when
+activated, <a class="reference internal" href="#Engine.thrust_limit" title="Engine.thrust_limit"><tt class="xref py py-attr docutils literal"><span class="pre">Engine.thrust_limit</span></tt></a> is set to 100% and the main vessel&#8217;s
+throttle is set to 100%.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.max_vacuum_thrust">
+<tt class="descname">max_vacuum_thrust</tt><a class="headerlink" href="#Engine.max_vacuum_thrust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the maximum amount of thrust that can be produced by the engine in a
+vacuum, in Newtons. This is the amount of thrust produced by the engine
+when activated, <a class="reference internal" href="#Engine.thrust_limit" title="Engine.thrust_limit"><tt class="xref py py-attr docutils literal"><span class="pre">Engine.thrust_limit</span></tt></a> is set to 100%, the main
+vessel&#8217;s throttle is set to 100% and the engine is in a vacuum.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.thrust_limit">
+<tt class="descname">thrust_limit</tt><a class="headerlink" href="#Engine.thrust_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the thrust limiter of the engine. A value between 0
+and 1. Setting this attribute may have no effect, for example the thrust
+limit for a solid rocket booster cannot be changed in flight.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.specific_impulse">
+<tt class="descname">specific_impulse</tt><a class="headerlink" href="#Engine.specific_impulse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current specific impulse of the engine, in seconds. Returns zero
+if the engine is not active.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.vacuum_specific_impulse">
+<tt class="descname">vacuum_specific_impulse</tt><a class="headerlink" href="#Engine.vacuum_specific_impulse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the vacuum specific impulse of the engine, in seconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.kerbin_sea_level_specific_impulse">
+<tt class="descname">kerbin_sea_level_specific_impulse</tt><a class="headerlink" href="#Engine.kerbin_sea_level_specific_impulse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the specific impulse of the engine at sea level on Kerbin, in
+seconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.propellants">
+<tt class="descname">propellants</tt><a class="headerlink" href="#Engine.propellants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the names of resources that the engine consumes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="docutils literal"><span class="pre">list</span></tt> ( string )</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.has_fuel">
+<tt class="descname">has_fuel</tt><a class="headerlink" href="#Engine.has_fuel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets whether the engine has flamed out, i.e. run out of fuel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.throttle">
+<tt class="descname">throttle</tt><a class="headerlink" href="#Engine.throttle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current throttle setting for the engine. A value between 0
+and 1. This is not necessarily the same as the vessel&#8217;s main throttle
+setting, as some engines take time to adjust their throttle (such as jet
+engines).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.throttle_locked">
+<tt class="descname">throttle_locked</tt><a class="headerlink" href="#Engine.throttle_locked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets whether the <a class="reference internal" href="control.html#Control.throttle" title="Control.throttle"><tt class="xref py py-attr docutils literal"><span class="pre">Control.throttle</span></tt></a> affects the engine. For example,
+this is <tt class="docutils literal"><span class="pre">True</span></tt> for liquid fueled rockets, and <tt class="docutils literal"><span class="pre">False</span></tt> for solid rocket
+boosters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.can_restart">
+<tt class="descname">can_restart</tt><a class="headerlink" href="#Engine.can_restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets whether the engine can be restarted once shutdown. If the engine
+cannot be shutdown, returns <tt class="docutils literal"><span class="pre">False</span></tt>. For example, this is <tt class="docutils literal"><span class="pre">True</span></tt> for
+liquid fueled rockets and <tt class="docutils literal"><span class="pre">False</span></tt> for solid rocket boosters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.can_shutdown">
+<tt class="descname">can_shutdown</tt><a class="headerlink" href="#Engine.can_shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets whether the engine can be shutdown once activated. For example, this
+is <tt class="docutils literal"><span class="pre">True</span></tt> for liquid fueled rockets and <tt class="docutils literal"><span class="pre">False</span></tt> for solid rocket
+boosters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.gimballed">
+<tt class="descname">gimballed</tt><a class="headerlink" href="#Engine.gimballed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets whether the engine nozzle is gimballed, i.e. can provide a turning
+force.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.gimbal_range">
+<tt class="descname">gimbal_range</tt><a class="headerlink" href="#Engine.gimbal_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the range over which the gimbal can move, in degrees.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.gimbal_locked">
+<tt class="descname">gimbal_locked</tt><a class="headerlink" href="#Engine.gimbal_locked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets whether the engines gimbal is locked in place. Setting this
+attribute has no effect if the engine is not gimballed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Engine.gimbal_limit">
+<tt class="descname">gimbal_limit</tt><a class="headerlink" href="#Engine.gimbal_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the gimbal limiter of the engine. A value between 0
+and 1. Returns 0 if the gimbal is locked or the engine is not
+gimballed. Setting this attribute has no effect if the engine is not
+gimballed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="landing-gear">
+<h3><a class="toc-backref" href="#id27">Landing Gear</a><a class="headerlink" href="#landing-gear" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="LandingGear">
+<em class="property">class </em><tt class="descname">LandingGear</tt><a class="headerlink" href="#LandingGear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtained by calling <a class="reference internal" href="#Part.landing_gear" title="Part.landing_gear"><tt class="xref py py-attr docutils literal"><span class="pre">Part.landing_gear</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="LandingGear.part">
+<tt class="descname">part</tt><a class="headerlink" href="#LandingGear.part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the part object for this landing gear.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="LandingGear.state">
+<tt class="descname">state</tt><a class="headerlink" href="#LandingGear.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current state of the landing gear.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#LandingGearState" title="LandingGearState"><tt class="xref py py-class docutils literal"><span class="pre">LandingGearState</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="LandingGear.deployed">
+<tt class="descname">deployed</tt><a class="headerlink" href="#LandingGear.deployed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets whether the landing gear is deployed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="LandingGearState">
+<em class="property">class </em><tt class="descname">LandingGearState</tt><a class="headerlink" href="#LandingGearState" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="data">
+<dt id="LandingGearState.deployed">
+<tt class="descname">deployed</tt><a class="headerlink" href="#LandingGearState.deployed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="LandingGearState.retracted">
+<tt class="descname">retracted</tt><a class="headerlink" href="#LandingGearState.retracted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="LandingGearState.deploying">
+<tt class="descname">deploying</tt><a class="headerlink" href="#LandingGearState.deploying" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="LandingGearState.retracting">
+<tt class="descname">retracting</tt><a class="headerlink" href="#LandingGearState.retracting" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="landing-leg">
+<h3><a class="toc-backref" href="#id28">Landing Leg</a><a class="headerlink" href="#landing-leg" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="LandingLeg">
+<em class="property">class </em><tt class="descname">LandingLeg</tt><a class="headerlink" href="#LandingLeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtained by calling <a class="reference internal" href="#Part.landing_leg" title="Part.landing_leg"><tt class="xref py py-attr docutils literal"><span class="pre">Part.landing_leg</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="LandingLeg.part">
+<tt class="descname">part</tt><a class="headerlink" href="#LandingLeg.part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the part object for this landing leg.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="LandingLeg.state">
+<tt class="descname">state</tt><a class="headerlink" href="#LandingLeg.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current state of the landing leg.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#LandingLegState" title="LandingLegState"><tt class="xref py py-class docutils literal"><span class="pre">LandingLegState</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="LandingLeg.deployed">
+<tt class="descname">deployed</tt><a class="headerlink" href="#LandingLeg.deployed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets whether the landing leg is deployed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="LandingLegState">
+<em class="property">class </em><tt class="descname">LandingLegState</tt><a class="headerlink" href="#LandingLegState" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="data">
+<dt id="LandingLegState.deployed">
+<tt class="descname">deployed</tt><a class="headerlink" href="#LandingLegState.deployed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="LandingLegState.retracted">
+<tt class="descname">retracted</tt><a class="headerlink" href="#LandingLegState.retracted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="LandingLegState.deploying">
+<tt class="descname">deploying</tt><a class="headerlink" href="#LandingLegState.deploying" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="LandingLegState.retracting">
+<tt class="descname">retracting</tt><a class="headerlink" href="#LandingLegState.retracting" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="LandingLegState.broken">
+<tt class="descname">broken</tt><a class="headerlink" href="#LandingLegState.broken" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="LandingLegState.repairing">
+<tt class="descname">repairing</tt><a class="headerlink" href="#LandingLegState.repairing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="launch-clamp">
+<h3><a class="toc-backref" href="#id29">Launch Clamp</a><a class="headerlink" href="#launch-clamp" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="LaunchClamp">
+<em class="property">class </em><tt class="descname">LaunchClamp</tt><a class="headerlink" href="#LaunchClamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtained by calling <a class="reference internal" href="#Part.launch_clamp" title="Part.launch_clamp"><tt class="xref py py-attr docutils literal"><span class="pre">Part.launch_clamp</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="LaunchClamp.part">
+<tt class="descname">part</tt><a class="headerlink" href="#LaunchClamp.part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the part object for this launch clamp.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="LaunchClamp.release">
+<tt class="descname">release</tt><big>(</big><big>)</big><a class="headerlink" href="#LaunchClamp.release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Releases the docking clamp. Has no effect if the clamp has already been
+released.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="light">
+<h3><a class="toc-backref" href="#id30">Light</a><a class="headerlink" href="#light" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="Light">
+<em class="property">class </em><tt class="descname">Light</tt><a class="headerlink" href="#Light" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtained by calling <a class="reference internal" href="#Part.light" title="Part.light"><tt class="xref py py-attr docutils literal"><span class="pre">Part.light</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="Light.part">
+<tt class="descname">part</tt><a class="headerlink" href="#Light.part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the part object for this light.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Light.active">
+<tt class="descname">active</tt><a class="headerlink" href="#Light.active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets whether the light is switched on.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Light.power_usage">
+<tt class="descname">power_usage</tt><a class="headerlink" href="#Light.power_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current power usage, in units of charge per second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="parachute">
+<h3><a class="toc-backref" href="#id31">Parachute</a><a class="headerlink" href="#parachute" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="Parachute">
+<em class="property">class </em><tt class="descname">Parachute</tt><a class="headerlink" href="#Parachute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtained by calling <a class="reference internal" href="#Part.parachute" title="Part.parachute"><tt class="xref py py-attr docutils literal"><span class="pre">Part.parachute</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="Parachute.part">
+<tt class="descname">part</tt><a class="headerlink" href="#Parachute.part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the part object for this parachute.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Parachute.deploy">
+<tt class="descname">deploy</tt><big>(</big><big>)</big><a class="headerlink" href="#Parachute.deploy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deploys the parachute. This has no effect if the parachute has already
+been deployed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parachute.deployed">
+<tt class="descname">deployed</tt><a class="headerlink" href="#Parachute.deployed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets whether the parachute has been deployed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parachute.state">
+<tt class="descname">state</tt><a class="headerlink" href="#Parachute.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current state of the parachute.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ParachuteState" title="ParachuteState"><tt class="xref py py-class docutils literal"><span class="pre">ParachuteState</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parachute.deploy_altitude">
+<tt class="descname">deploy_altitude</tt><a class="headerlink" href="#Parachute.deploy_altitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the altitude at which the parachute will full deploy, in
+meters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parachute.deploy_min_pressure">
+<tt class="descname">deploy_min_pressure</tt><a class="headerlink" href="#Parachute.deploy_min_pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the minimum pressure at which the parachute will semi-deploy,
+in atm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ParachuteState">
+<em class="property">class </em><tt class="descname">ParachuteState</tt><a class="headerlink" href="#ParachuteState" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="ParachuteState.stowed">
+<tt class="descname">stowed</tt><a class="headerlink" href="#ParachuteState.stowed" title="Permalink to this definition">¶</a></dt>
+<dd><p>The parachute is safely tucked away inside its housing.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ParachuteState.active">
+<tt class="descname">active</tt><a class="headerlink" href="#ParachuteState.active" title="Permalink to this definition">¶</a></dt>
+<dd><p>The parachute is still stowed, but ready to semi-deploy.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ParachuteState.semi_deployed">
+<tt class="descname">semi_deployed</tt><a class="headerlink" href="#ParachuteState.semi_deployed" title="Permalink to this definition">¶</a></dt>
+<dd><p>The parachute has been deployed and is providing some drag, but is not
+fully deployed yet.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ParachuteState.deployed">
+<tt class="descname">deployed</tt><a class="headerlink" href="#ParachuteState.deployed" title="Permalink to this definition">¶</a></dt>
+<dd><p>The parachute is fully deployed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ParachuteState.cut">
+<tt class="descname">cut</tt><a class="headerlink" href="#ParachuteState.cut" title="Permalink to this definition">¶</a></dt>
+<dd><p>The parachute has been cut.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="reaction-wheel">
+<h3><a class="toc-backref" href="#id32">Reaction Wheel</a><a class="headerlink" href="#reaction-wheel" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="ReactionWheel">
+<em class="property">class </em><tt class="descname">ReactionWheel</tt><a class="headerlink" href="#ReactionWheel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtained by calling <a class="reference internal" href="#Part.reaction_wheel" title="Part.reaction_wheel"><tt class="xref py py-attr docutils literal"><span class="pre">Part.reaction_wheel</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="ReactionWheel.part">
+<tt class="descname">part</tt><a class="headerlink" href="#ReactionWheel.part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the part object for this reaction wheel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ReactionWheel.active">
+<tt class="descname">active</tt><a class="headerlink" href="#ReactionWheel.active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets whether the reaction wheel is active.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ReactionWheel.broken">
+<tt class="descname">broken</tt><a class="headerlink" href="#ReactionWheel.broken" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets whether the reaction wheel is broken.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ReactionWheel.pitch_torque">
+<tt class="descname">pitch_torque</tt><a class="headerlink" href="#ReactionWheel.pitch_torque" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the torque in the pitch axis, in Newton meters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ReactionWheel.yaw_torque">
+<tt class="descname">yaw_torque</tt><a class="headerlink" href="#ReactionWheel.yaw_torque" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the torque in the yaw axis, in Newton meters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ReactionWheel.roll_torque">
+<tt class="descname">roll_torque</tt><a class="headerlink" href="#ReactionWheel.roll_torque" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the torque in the roll axis, in Newton meters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="sensor">
+<h3><a class="toc-backref" href="#id33">Sensor</a><a class="headerlink" href="#sensor" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="Sensor">
+<em class="property">class </em><tt class="descname">Sensor</tt><a class="headerlink" href="#Sensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtained by calling <a class="reference internal" href="#Part.sensor" title="Part.sensor"><tt class="xref py py-attr docutils literal"><span class="pre">Part.sensor</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="Sensor.part">
+<tt class="descname">part</tt><a class="headerlink" href="#Sensor.part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the part object for this sensor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Sensor.active">
+<tt class="descname">active</tt><a class="headerlink" href="#Sensor.active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets whether the sensor is active.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Sensor.value">
+<tt class="descname">value</tt><a class="headerlink" href="#Sensor.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current value of the sensor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Sensor.power_usage">
+<tt class="descname">power_usage</tt><a class="headerlink" href="#Sensor.power_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current power usage of the sensor, in units of charge per second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="solar-panel">
+<h3><a class="toc-backref" href="#id34">Solar Panel</a><a class="headerlink" href="#solar-panel" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="SolarPanel">
+<em class="property">class </em><tt class="descname">SolarPanel</tt><a class="headerlink" href="#SolarPanel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtained by calling <a class="reference internal" href="#Part.solar_panel" title="Part.solar_panel"><tt class="xref py py-attr docutils literal"><span class="pre">Part.solar_panel</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="SolarPanel.part">
+<tt class="descname">part</tt><a class="headerlink" href="#SolarPanel.part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the part object for this solar panel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#Part" title="Part"><tt class="xref py py-class docutils literal"><span class="pre">Part</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="SolarPanel.deployed">
+<tt class="descname">deployed</tt><a class="headerlink" href="#SolarPanel.deployed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets whether the solar panel is extended.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="SolarPanel.state">
+<tt class="descname">state</tt><a class="headerlink" href="#SolarPanel.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current state of the solar panel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#SolarPanelState" title="SolarPanelState"><tt class="xref py py-class docutils literal"><span class="pre">SolarPanelState</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="SolarPanel.energy_flow">
+<tt class="descname">energy_flow</tt><a class="headerlink" href="#SolarPanel.energy_flow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current amount of energy being generated by the solar panel, in
+units of charge per second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="SolarPanel.sun_exposure">
+<tt class="descname">sun_exposure</tt><a class="headerlink" href="#SolarPanel.sun_exposure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current amount of sunlight that is incident on the solar panel,
+as a percentage. A value between 0 and 1.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="SolarPanelState">
+<em class="property">class </em><tt class="descname">SolarPanelState</tt><a class="headerlink" href="#SolarPanelState" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="data">
+<dt id="SolarPanelState.extended">
+<tt class="descname">extended</tt><a class="headerlink" href="#SolarPanelState.extended" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SolarPanelState.retracted">
+<tt class="descname">retracted</tt><a class="headerlink" href="#SolarPanelState.retracted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SolarPanelState.extending">
+<tt class="descname">extending</tt><a class="headerlink" href="#SolarPanelState.extending" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SolarPanelState.retracting">
+<tt class="descname">retracting</tt><a class="headerlink" href="#SolarPanelState.retracting" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="SolarPanelState.broken">
+<tt class="descname">broken</tt><a class="headerlink" href="#SolarPanelState.broken" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="trees-of-parts">
+<span id="api-parts-trees-of-parts"></span><h2><a class="toc-backref" href="#id19">Trees of Parts</a><a class="headerlink" href="#trees-of-parts" title="Permalink to this headline">¶</a></h2>
+<p>Vessels in KSP are comprised of a number of parts, connected to one another in a
+<em>tree</em> structure. An example vessel is shown in Figure 1, and the corresponding
+tree of parts in Figure 2. The craft file for this example can also be
+<a class="reference download internal" href="../_downloads/PartsTree.craft"><tt class="xref download docutils literal"><span class="pre">downloaded</span> <span class="pre">here</span></tt></a>.</p>
+<div class="figure align-left" style="width: 275px">
+<img alt="../_images/parts.png" src="../_images/parts.png" />
+<p class="caption"><strong>Figure 1</strong> &#8211; Example parts making up a vessel.</p>
+</div>
+<div class="figure align-right" style="width: 275px">
+<img alt="../_images/parts-tree.png" src="../_images/parts-tree.png" />
+<p class="caption"><strong>Figure 2</strong> &#8211; Tree of parts for the vessel in Figure 1. Arrows point from
+the parent part to the child part.</p>
+</div>
+<div class="clearer container">
+</div>
+<div class="section" id="traversing-the-tree">
+<h3><a class="toc-backref" href="#id20">Traversing the Tree</a><a class="headerlink" href="#traversing-the-tree" title="Permalink to this headline">¶</a></h3>
+<p>The tree of parts can be traversed using the attributes <a class="reference internal" href="#Parts.root" title="Parts.root"><tt class="xref py py-attr docutils literal"><span class="pre">Parts.root</span></tt></a>,
+<a class="reference internal" href="#Part.parent" title="Part.parent"><tt class="xref py py-attr docutils literal"><span class="pre">Part.parent</span></tt></a> and <a class="reference internal" href="#Part.children" title="Part.children"><tt class="xref py py-attr docutils literal"><span class="pre">Part.children</span></tt></a>.</p>
+<p>The root of the tree is the same as the vessels <em>root part</em> (part number 1 in
+the example above) and can be obtained by calling <a class="reference internal" href="#Parts.root" title="Parts.root"><tt class="xref py py-attr docutils literal"><span class="pre">Parts.root</span></tt></a>. A parts
+children can be obtained by calling <a class="reference internal" href="#Part.children" title="Part.children"><tt class="xref py py-attr docutils literal"><span class="pre">Part.children</span></tt></a>. If the part does not
+have any children, <a class="reference internal" href="#Part.children" title="Part.children"><tt class="xref py py-attr docutils literal"><span class="pre">Part.children</span></tt></a> returns an empty list. A parts parent
+can be obtained by calling <a class="reference internal" href="#Part.parent" title="Part.parent"><tt class="xref py py-attr docutils literal"><span class="pre">Part.parent</span></tt></a>. If the part does not have a
+parent (as is the case for the root part), <a class="reference internal" href="#Part.parent" title="Part.parent"><tt class="xref py py-attr docutils literal"><span class="pre">Part.parent</span></tt></a> returns <tt class="docutils literal"><span class="pre">None</span></tt>.</p>
+<p>The following python example uses these attributes to perform a depth-first
+traversal over all of the parts in a vessel:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">root</span> <span class="o">=</span> <span class="n">vessel</span><span class="o">.</span><span class="n">parts</span><span class="o">.</span><span class="n">root</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="p">[(</span><span class="n">root</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">part</span><span class="p">,</span><span class="n">depth</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="o">*</span><span class="n">depth</span><span class="p">,</span> <span class="n">part</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">part</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">child</span><span class="p">,</span> <span class="n">depth</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>When this code is execute using the craft file for the example vessel pictured
+above, the following is printed out:</p>
+<div class="highlight-python"><div class="highlight"><pre>Command Pod Mk1
+ TR-18A Stack Decoupler
+  FL-T400 Fuel Tank
+   LV-909 Liquid Fuel Engine
+    TR-18A Stack Decoupler
+     FL-T800 Fuel Tank
+      LV-909 Liquid Fuel Engine
+      TT-70 Radial Decoupler
+       FL-T400 Fuel Tank
+        TT18-A Launch Stability Enhancer
+        FTX-2 External Fuel Duct
+        LV-909 Liquid Fuel Engine
+        Aerodynamic Nose Cone
+      TT-70 Radial Decoupler
+       FL-T400 Fuel Tank
+        TT18-A Launch Stability Enhancer
+        FTX-2 External Fuel Duct
+        LV-909 Liquid Fuel Engine
+        Aerodynamic Nose Cone
+   LT-1 Landing Struts
+   LT-1 Landing Struts
+ Mk16 Parachute
+</pre></div>
+</div>
+</div>
+<div class="section" id="attachment-modes">
+<span id="api-parts-attachment-modes"></span><h3><a class="toc-backref" href="#id21">Attachment Modes</a><a class="headerlink" href="#attachment-modes" title="Permalink to this headline">¶</a></h3>
+<p>Parts can be attached to other parts either <em>radially</em> (on the side of the
+parent part) or <em>axially</em> (on the end of the parent part, to form a stack).</p>
+<p>For example, in the vessel pictured above, the parachute (part 2) is <em>axially</em>
+connected to its parent (the command pod &#8211; part 1), and the landing leg
+(part 5) is <em>radially</em> connected to its parent (the fuel tank &#8211; part 4).</p>
+<p>The root part of a vessel (for example the command pod &#8211; part 1) does not have
+a parent part, so does not have an attachment mode. However, the part is
+consider to be <em>axially</em> attached to nothing.</p>
+<p>The following python example does a depth-first traversal as before, but also
+prints out the attachment mode used by the part:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">root</span> <span class="o">=</span> <span class="n">vessel</span><span class="o">.</span><span class="n">parts</span><span class="o">.</span><span class="n">root</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="p">[(</span><span class="n">root</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">part</span><span class="p">,</span><span class="n">depth</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">part</span><span class="o">.</span><span class="n">axially_attached</span><span class="p">:</span>
+        <span class="n">attach_mode</span> <span class="o">=</span> <span class="s">&#39;axial&#39;</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c"># radially_attached</span>
+        <span class="n">attach_mode</span> <span class="o">=</span> <span class="s">&#39;radial&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="o">*</span><span class="n">depth</span><span class="p">,</span> <span class="n">part</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="n">attach_mode</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">part</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">child</span><span class="p">,</span> <span class="n">depth</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>When this code is execute using the craft file for the example vessel pictured
+above, the following is printed out:</p>
+<div class="highlight-python"><div class="highlight"><pre>Command Pod Mk1 - axial
+ TR-18A Stack Decoupler - axial
+  FL-T400 Fuel Tank - axial
+   LV-909 Liquid Fuel Engine - axial
+    TR-18A Stack Decoupler - axial
+     FL-T800 Fuel Tank - axial
+      LV-909 Liquid Fuel Engine - axial
+      TT-70 Radial Decoupler - radial
+       FL-T400 Fuel Tank - radial
+        TT18-A Launch Stability Enhancer - radial
+        FTX-2 External Fuel Duct - radial
+        LV-909 Liquid Fuel Engine - axial
+        Aerodynamic Nose Cone - axial
+      TT-70 Radial Decoupler - radial
+       FL-T400 Fuel Tank - radial
+        TT18-A Launch Stability Enhancer - radial
+        FTX-2 External Fuel Duct - radial
+        LV-909 Liquid Fuel Engine - axial
+        Aerodynamic Nose Cone - axial
+   LT-1 Landing Struts - radial
+   LT-1 Landing Struts - radial
+ Mk16 Parachute - axial
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="fuel-lines">
+<span id="api-parts-fuel-lines"></span><h2><a class="toc-backref" href="#id22">Fuel Lines</a><a class="headerlink" href="#fuel-lines" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-right" style="width: 200px">
+<img alt="../_images/parts-fuel-lines.png" src="../_images/parts-fuel-lines.png" />
+<p class="caption"><strong>Figure 5</strong> &#8211; Fuel lines from the example in Figure 1. Fuel flows from the
+parts highlighted in green, into the part highlighted in blue.</p>
+</div>
+<div class="figure align-right" style="width: 200px">
+<img alt="../_images/parts-fuel-lines-tree.png" src="../_images/parts-fuel-lines-tree.png" />
+<p class="caption"><strong>Figure 4</strong> &#8211; A subset of the parts tree from Figure 2 above.</p>
+</div>
+<p>Fuel lines are considered parts, and are included in the parts tree (for
+example, as pictured in Figure 4). However, the parts tree does not contain
+information about which parts fuel lines connect to. The parent part of a fuel
+line is the part from which it will take fuel (as shown in Figure 4) however the
+part that it will send fuel to is not represented in the parts tree.</p>
+<p>Figure 5 shows the fuel lines from the example vessel pictured earlier. Fuel
+line part 15 (in red) takes fuel from a fuel tank (part 11 &#8211; in green) and
+feeds it into another fuel tank (part 9 &#8211; in blue). The fuel line is therefore
+a child of part 11, but its connection to part 9 is not represented in the tree.</p>
+<p>The attributes <a class="reference internal" href="#Part.fuel_lines_from" title="Part.fuel_lines_from"><tt class="xref py py-attr docutils literal"><span class="pre">Part.fuel_lines_from</span></tt></a> and <a class="reference internal" href="#Part.fuel_lines_to" title="Part.fuel_lines_to"><tt class="xref py py-attr docutils literal"><span class="pre">Part.fuel_lines_to</span></tt></a> can be
+used to discover these connections. In the example in Figure 5, when
+<a class="reference internal" href="#Part.fuel_lines_to" title="Part.fuel_lines_to"><tt class="xref py py-attr docutils literal"><span class="pre">Part.fuel_lines_to</span></tt></a> is called on fuel tank part 11, it will return a list
+of parts containing just fuel tank part 9 (the blue part). When
+<a class="reference internal" href="#Part.fuel_lines_from" title="Part.fuel_lines_from"><tt class="xref py py-attr docutils literal"><span class="pre">Part.fuel_lines_from</span></tt></a> is called on fuel tank part 9, it will return a list
+containing fuel tank parts 11 and 17 (the parts colored green).</p>
+</div>
+<div class="section" id="staging">
+<span id="api-parts-staging"></span><h2><a class="toc-backref" href="#id23">Staging</a><a class="headerlink" href="#staging" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-right" style="width: 340px">
+<img alt="../_images/parts-staging.png" src="../_images/parts-staging.png" />
+<p class="caption"><strong>Figure 6</strong> &#8211; Example vessel from Figure 1 with a staging sequence.</p>
+</div>
+<p>Each part has two staging numbers associated with it: the stage in which the
+part is <em>activated</em> and the stage in which the part is <em>decoupled</em>. These values
+can be obtained using <a class="reference internal" href="#Part.stage" title="Part.stage"><tt class="xref py py-attr docutils literal"><span class="pre">Part.stage</span></tt></a> and <a class="reference internal" href="#Part.decouple_stage" title="Part.decouple_stage"><tt class="xref py py-attr docutils literal"><span class="pre">Part.decouple_stage</span></tt></a>
+respectively. For parts that are not activated by staging, <a class="reference internal" href="#Part.stage" title="Part.stage"><tt class="xref py py-attr docutils literal"><span class="pre">Part.stage</span></tt></a>
+returns -1. For parts that are never decoupled, <a class="reference internal" href="#Part.decouple_stage" title="Part.decouple_stage"><tt class="xref py py-attr docutils literal"><span class="pre">Part.decouple_stage</span></tt></a>
+returns a value of -1.</p>
+<p>Figure 6 shows an example staging sequence for a vessel. Figure 7 shows the
+stages in which each part of the vessel will be <em>activated</em>. Figure 8 shows the
+stages in which each part of the vessel will be <em>decoupled</em>.</p>
+<div class="clearer container">
+</div>
+<div class="figure align-left" style="width: 250px">
+<img alt="../_images/parts-staging-activate.png" src="../_images/parts-staging-activate.png" />
+<p class="caption"><strong>Figure 7</strong> &#8211; The stage in which each part is <em>activated</em>.</p>
+</div>
+<div class="figure align-right" style="width: 250px">
+<img alt="../_images/parts-staging-decouple.png" src="../_images/parts-staging-decouple.png" />
+<p class="caption"><strong>Figure 8</strong> &#8211; The stage in which each part is <em>decoupled</em>.</p>
+</div>
+<div class="clearer container">
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="node.html" class="btn btn-neutral float-right" title="Node">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="vessel-resources.html" class="btn btn-neutral" title="Vessel Resources"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, djungelorm.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61341323-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

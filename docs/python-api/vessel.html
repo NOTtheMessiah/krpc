@@ -1,0 +1,861 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Vessel &mdash; kRPC 0.1.8 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="kRPC 0.1.8 documentation" href="../index.html"/>
+        <link rel="up" title="Python API" href="../python-api.html"/>
+        <link rel="next" title="CelestialBody" href="celestial-body.html"/>
+        <link rel="prev" title="SpaceCenter" href="space-center.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> kRPC</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#the-python-client">The Python Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#hello-world-script">&#8216;Hello World&#8217; Script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials and Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/suborbital-flight.html">Sub-Orbital Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/launch-into-orbit.html">Launch into Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/pitch-heading-roll.html">Pitch, Heading and Roll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/parts.html">Interacting with Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/docking-guidance.html">Docking Guidance</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../python-api.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="space-center.html">SpaceCenter</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Vessel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celestial-body.html">CelestialBody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flight.html">Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orbit.html">Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control.html">Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vessel-resources.html">Vessel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parts.html">Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comms.html">Comms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frame.html">ReferenceFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto-pilot.html">AutoPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry-types.html">Geometry Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../compiling.html">Compiling kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../compiling.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../compiling.html#the-python-client-library">The Python Client Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../extending.html">Extending kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending.html#the-krpc-architecture">The kRPC Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending.html#service-api">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending.html#further-examples">Further Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../communication-protocol.html">Communication Protocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#establishing-a-connection">Establishing a connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#remote-procedures">Remote Procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#protocol-buffer-encoding">Protocol Buffer Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#streams">Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#krpc-service">KRPC Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#service-description-message">Service Description Message</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">kRPC</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../python-api.html">Python API</a> &raquo;</li>
+      
+    <li>Vessel</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/python-api/vessel.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="vessel">
+<h1>Vessel<a class="headerlink" href="#vessel" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="Vessel">
+<em class="property">class </em><tt class="descname">Vessel</tt><a class="headerlink" href="#Vessel" title="Permalink to this definition">¶</a></dt>
+<dd><p>These objects are used to interact with vessels in KSP. This includes getting
+orbital and flight data, manipulating control inputs and managing resources.</p>
+<dl class="attribute">
+<dt id="Vessel.name">
+<tt class="descname">name</tt><a class="headerlink" href="#Vessel.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the name of the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.type">
+<tt class="descname">type</tt><a class="headerlink" href="#Vessel.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the type of the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#VesselType" title="VesselType"><tt class="xref py py-class docutils literal"><span class="pre">VesselType</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.situation">
+<tt class="descname">situation</tt><a class="headerlink" href="#Vessel.situation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the situation the vessel is in.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#VesselSituation" title="VesselSituation"><tt class="xref py py-class docutils literal"><span class="pre">VesselSituation</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.met">
+<tt class="descname">met</tt><a class="headerlink" href="#Vessel.met" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the mission elapsed time in seconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">double</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Vessel.flight">
+<tt class="descname">flight</tt><big>(</big><span class="optional">[</span><em>reference_frame=Vessel.surface_reference_frame</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#Vessel.flight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a <a class="reference internal" href="flight.html#Flight" title="Flight"><tt class="xref py py-class docutils literal"><span class="pre">Flight</span></tt></a> object that can be used to get flight telemetry for
+the vessel, in the specified reference frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; Defaults to the surface reference frame
+of the vessel.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="flight.html#Flight" title="Flight"><tt class="xref py py-class docutils literal"><span class="pre">Flight</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.target">
+<tt class="descname">target</tt><a class="headerlink" href="#Vessel.target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the target vessel. Returns <tt class="docutils literal"><span class="pre">None</span></tt> if there is no target. When
+setting the target, the target cannot be the current vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#Vessel" title="Vessel"><tt class="xref py py-class docutils literal"><span class="pre">Vessel</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.orbit">
+<tt class="descname">orbit</tt><a class="headerlink" href="#Vessel.orbit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current orbit of the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="orbit.html#Orbit" title="Orbit"><tt class="xref py py-class docutils literal"><span class="pre">Orbit</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.control">
+<tt class="descname">control</tt><a class="headerlink" href="#Vessel.control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a <a class="reference internal" href="control.html#Control" title="Control"><tt class="xref py py-class docutils literal"><span class="pre">Control</span></tt></a> object that can be used to manipulate the vessel&#8217;s
+control inputs. For example, its pitch/yaw/roll controls, RCS and thrust.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="control.html#Control" title="Control"><tt class="xref py py-class docutils literal"><span class="pre">Control</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.auto_pilot">
+<tt class="descname">auto_pilot</tt><a class="headerlink" href="#Vessel.auto_pilot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets an <a class="reference internal" href="auto-pilot.html#AutoPilot" title="AutoPilot"><tt class="xref py py-class docutils literal"><span class="pre">AutoPilot</span></tt></a> object, that can be used to perform simple
+auto-piloting of the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="auto-pilot.html#AutoPilot" title="AutoPilot"><tt class="xref py py-class docutils literal"><span class="pre">AutoPilot</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.resources">
+<tt class="descname">resources</tt><a class="headerlink" href="#Vessel.resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a <a class="reference internal" href="vessel-resources.html#VesselResources" title="VesselResources"><tt class="xref py py-class docutils literal"><span class="pre">VesselResources</span></tt></a> object, that can used to get information
+about, and manage, the vessels resources.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="vessel-resources.html#VesselResources" title="VesselResources"><tt class="xref py py-class docutils literal"><span class="pre">VesselResources</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.parts">
+<tt class="descname">parts</tt><a class="headerlink" href="#Vessel.parts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a <a class="reference internal" href="parts.html#Parts" title="Parts"><tt class="xref py py-class docutils literal"><span class="pre">Parts</span></tt></a> object, that can used to interact with the parts
+that make up this vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="parts.html#Parts" title="Parts"><tt class="xref py py-class docutils literal"><span class="pre">Parts</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.comms">
+<tt class="descname">comms</tt><a class="headerlink" href="#Vessel.comms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a <a class="reference internal" href="comms.html#Comms" title="Comms"><tt class="xref py py-class docutils literal"><span class="pre">Comms</span></tt></a> object, that can used to interact with <a class="reference external" href="http://forum.kerbalspaceprogram.com/threads/83305-0-90-0-RemoteTech-v1-6-3-2015-02-06">RemoteTech</a>
+for this vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="comms.html#Comms" title="Comms"><tt class="xref py py-class docutils literal"><span class="pre">Comms</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Requires <a class="reference external" href="http://forum.kerbalspaceprogram.com/threads/83305-0-90-0-RemoteTech-v1-6-3-2015-02-06">RemoteTech</a> to be installed.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.mass">
+<tt class="descname">mass</tt><a class="headerlink" href="#Vessel.mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total mass of the vessel (including resources) in kg.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.dry_mass">
+<tt class="descname">dry_mass</tt><a class="headerlink" href="#Vessel.dry_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total mass of the vessel (excluding resources) in kg.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.thrust">
+<tt class="descname">thrust</tt><a class="headerlink" href="#Vessel.thrust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total thrust currently being produced by the vessel&#8217;s active
+engines, in Newtons. This is computed by summing <a class="reference internal" href="parts.html#Engine.thrust" title="Engine.thrust"><tt class="xref py py-attr docutils literal"><span class="pre">Engine.thrust</span></tt></a> for
+every active engine in the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.available_thrust">
+<tt class="descname">available_thrust</tt><a class="headerlink" href="#Vessel.available_thrust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total available thrust that can be produced by the vessel&#8217;s
+active engines, in Newtons. This is computed by summing
+<a class="reference internal" href="parts.html#Engine.available_thrust" title="Engine.available_thrust"><tt class="xref py py-attr docutils literal"><span class="pre">Engine.available_thrust</span></tt></a> for every active engine in the vessel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.max_thrust">
+<tt class="descname">max_thrust</tt><a class="headerlink" href="#Vessel.max_thrust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total maximum thrust that can be produced by the vessel&#8217;s active
+engines, in Newtons. This is computed by summing <a class="reference internal" href="parts.html#Engine.max_thrust" title="Engine.max_thrust"><tt class="xref py py-attr docutils literal"><span class="pre">Engine.max_thrust</span></tt></a>
+for every active engine.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.max_vacuum_thrust">
+<tt class="descname">max_vacuum_thrust</tt><a class="headerlink" href="#Vessel.max_vacuum_thrust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total maximum thrust that can be produced by the vessel&#8217;s active
+engines when the vessel is in a vacuum, in Newtons. This is computed by
+summing <a class="reference internal" href="parts.html#Engine.max_vacuum_thrust" title="Engine.max_vacuum_thrust"><tt class="xref py py-attr docutils literal"><span class="pre">Engine.max_vacuum_thrust</span></tt></a> for every active engine.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.specific_impulse">
+<tt class="descname">specific_impulse</tt><a class="headerlink" href="#Vessel.specific_impulse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the combined specific impulse of all active engines, in seconds. This
+is computed using the formula <a class="reference external" href="http://wiki.kerbalspaceprogram.com/wiki/Specific_impulse#Multiple_engines">described here</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.vacuum_specific_impulse">
+<tt class="descname">vacuum_specific_impulse</tt><a class="headerlink" href="#Vessel.vacuum_specific_impulse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the combined vacuum specific impulse of all active engines, in
+seconds. This is computed using the formula <a class="reference external" href="http://wiki.kerbalspaceprogram.com/wiki/Specific_impulse#Multiple_engines">described here</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.kerbin_sea_level_specific_impulse">
+<tt class="descname">kerbin_sea_level_specific_impulse</tt><a class="headerlink" href="#Vessel.kerbin_sea_level_specific_impulse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the combined specific impulse of all active engines at sea level on
+Kerbin, in seconds. This is computed using the formula <a class="reference external" href="http://wiki.kerbalspaceprogram.com/wiki/Specific_impulse#Multiple_engines">described here</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.reference_frame">
+<tt class="descname">reference_frame</tt><a class="headerlink" href="#Vessel.reference_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the reference frame that is fixed relative to the vessel, and orientated
+with the vessel.</p>
+<ul class="simple">
+<li>The origin is at the center of mass of the vessel.</li>
+<li>The axes rotate with the vessel.</li>
+<li>The x-axis points out to the right of the vessel.</li>
+<li>The y-axis points in the forward direction of the vessel.</li>
+<li>The z-axis points out of the bottom off the vessel.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><tt class="xref py py-class docutils literal"><span class="pre">ReferenceFrame</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="figure align-center">
+<img alt="../_images/vessel-aircraft.png" src="../_images/vessel-aircraft.png" />
+<p class="caption">Vessel reference frame origin and axes for the Aeris 3A aircraft</p>
+</div>
+<div class="figure align-center">
+<img alt="../_images/vessel-rocket.png" src="../_images/vessel-rocket.png" />
+<p class="caption">Vessel reference frame origin and axes for the Kerbal-X rocket</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.orbital_reference_frame">
+<tt class="descname">orbital_reference_frame</tt><a class="headerlink" href="#Vessel.orbital_reference_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the reference frame that is fixed relative to the vessel, and orientated
+with the vessels orbital prograde/normal/radial directions.</p>
+<ul class="simple">
+<li>The origin is at the center of mass of the vessel.</li>
+<li>The axes rotate with the orbital prograde/normal/radial directions.</li>
+<li>The x-axis points in the orbital anti-radial direction.</li>
+<li>The y-axis points in the orbital prograde direction.</li>
+<li>The z-axis points in the orbital normal direction.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><tt class="xref py py-class docutils literal"><span class="pre">ReferenceFrame</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Be careful not to confuse this with &#8216;orbit&#8217; mode on the navball.</p>
+</div>
+<div class="figure align-center">
+<img alt="../_images/vessel-orbital.png" src="../_images/vessel-orbital.png" />
+<p class="caption">Vessel orbital reference frame origin and axes</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.surface_reference_frame">
+<tt class="descname">surface_reference_frame</tt><a class="headerlink" href="#Vessel.surface_reference_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the reference frame that is fixed relative to the vessel, and orientated
+with the surface of the body being orbited.</p>
+<ul class="simple">
+<li>The origin is at the center of mass of the vessel.</li>
+<li>The axes rotate with the north and up directions on the surface of the
+body.</li>
+<li>The x-axis points in the <a class="reference external" href="http://en.wikipedia.org/wiki/Zenith">zenith</a>
+direction (upwards, normal to the body being orbited, from the center of
+the body towards the center of mass of the vessel).</li>
+<li>The y-axis points northwards towards the <a class="reference external" href="http://en.wikipedia.org/wiki/Horizon">astronomical horizon</a> (north, and tangential to the
+surface of the body &#8211; the direction in which a compass would point when
+on the surface).</li>
+<li>The z-axis points eastwards towards the <a class="reference external" href="http://en.wikipedia.org/wiki/Horizon">astronomical horizon</a> (east, and tangential to the
+surface of the body &#8211; east on a compass when on the surface).</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><tt class="xref py py-class docutils literal"><span class="pre">ReferenceFrame</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Be careful not to confuse this with &#8216;surface&#8217; mode on the navball.</p>
+</div>
+<div class="figure align-center">
+<img alt="../_images/vessel-surface.png" src="../_images/vessel-surface.png" />
+<p class="caption">Vessel surface reference frame origin and axes</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Vessel.surface_velocity_reference_frame">
+<tt class="descname">surface_velocity_reference_frame</tt><a class="headerlink" href="#Vessel.surface_velocity_reference_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the reference frame that is fixed relative to the vessel, and orientated
+with the velocity vector of the vessel relative to the surface of the body
+being orbited.</p>
+<ul class="simple">
+<li>The origin is at the center of mass of the vessel.</li>
+<li>The axes rotate with the vessel&#8217;s velocity vector.</li>
+<li>The y-axis points in the direction of the vessel&#8217;s velocity vector,
+relative to the surface of the body being orbited.</li>
+<li>The z-axis is in the plane of the <a class="reference external" href="http://en.wikipedia.org/wiki/Horizon">astronomical horizon</a>.</li>
+<li>The x-axis is orthogonal to the other two axes.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><tt class="xref py py-class docutils literal"><span class="pre">ReferenceFrame</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="figure align-center">
+<img alt="../_images/vessel-surface-velocity.png" src="../_images/vessel-surface-velocity.png" />
+<p class="caption">Vessel surface velocity reference frame origin and axes</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Vessel.position">
+<tt class="descname">position</tt><big>(</big><em>reference_frame</em><big>)</big><a class="headerlink" href="#Vessel.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the position vector of the center of mass of the vessel in the given
+reference frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Vector3" title="Vector3"><tt class="xref py py-class docutils literal"><span class="pre">Vector3</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Vessel.velocity">
+<tt class="descname">velocity</tt><big>(</big><em>reference_frame</em><big>)</big><a class="headerlink" href="#Vessel.velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the velocity vector of the center of mass of the vessel in the given
+reference frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Vector3" title="Vector3"><tt class="xref py py-class docutils literal"><span class="pre">Vector3</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Vessel.rotation">
+<tt class="descname">rotation</tt><big>(</big><em>reference_frame</em><big>)</big><a class="headerlink" href="#Vessel.rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the rotation of the center of mass of the vessel in the given
+reference frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Quaternion" title="Quaternion"><tt class="xref py py-class docutils literal"><span class="pre">Quaternion</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Vessel.direction">
+<tt class="descname">direction</tt><big>(</big><em>reference_frame</em><big>)</big><a class="headerlink" href="#Vessel.direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the direction in which the vessel is pointing, as a unit vector, in
+the given reference frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Vector3" title="Vector3"><tt class="xref py py-class docutils literal"><span class="pre">Vector3</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Vessel.angular_velocity">
+<tt class="descname">angular_velocity</tt><big>(</big><em>reference_frame</em><big>)</big><a class="headerlink" href="#Vessel.angular_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the angular velocity of the vessel in the given reference frame. The
+magnitude of the returned vector is the rotational speed in radians per
+second, and the direction of the vector indicates the axis of rotation (using
+the right hand rule).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Vector3" title="Vector3"><tt class="xref py py-class docutils literal"><span class="pre">Vector3</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VesselType">
+<em class="property">class </em><tt class="descname">VesselType</tt><a class="headerlink" href="#VesselType" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="data">
+<dt id="VesselType.ship">
+<tt class="descname">ship</tt><a class="headerlink" href="#VesselType.ship" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VesselType.station">
+<tt class="descname">station</tt><a class="headerlink" href="#VesselType.station" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VesselType.lander">
+<tt class="descname">lander</tt><a class="headerlink" href="#VesselType.lander" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VesselType.probe">
+<tt class="descname">probe</tt><a class="headerlink" href="#VesselType.probe" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VesselType.rover">
+<tt class="descname">rover</tt><a class="headerlink" href="#VesselType.rover" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VesselType.base">
+<tt class="descname">base</tt><a class="headerlink" href="#VesselType.base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VesselType.debris">
+<tt class="descname">debris</tt><a class="headerlink" href="#VesselType.debris" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VesselSituation">
+<em class="property">class </em><tt class="descname">VesselSituation</tt><a class="headerlink" href="#VesselSituation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="data">
+<dt id="VesselSituation.docked">
+<tt class="descname">docked</tt><a class="headerlink" href="#VesselSituation.docked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VesselSituation.escaping">
+<tt class="descname">escaping</tt><a class="headerlink" href="#VesselSituation.escaping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VesselSituation.flying">
+<tt class="descname">flying</tt><a class="headerlink" href="#VesselSituation.flying" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VesselSituation.landed">
+<tt class="descname">landed</tt><a class="headerlink" href="#VesselSituation.landed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VesselSituation.orbiting">
+<tt class="descname">orbiting</tt><a class="headerlink" href="#VesselSituation.orbiting" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VesselSituation.pre_launch">
+<tt class="descname">pre_launch</tt><a class="headerlink" href="#VesselSituation.pre_launch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VesselSituation.splashed">
+<tt class="descname">splashed</tt><a class="headerlink" href="#VesselSituation.splashed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VesselSituation.sub_orbital">
+<tt class="descname">sub_orbital</tt><a class="headerlink" href="#VesselSituation.sub_orbital" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="celestial-body.html" class="btn btn-neutral float-right" title="CelestialBody">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="space-center.html" class="btn btn-neutral" title="SpaceCenter"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, djungelorm.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61341323-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,490 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Node &mdash; kRPC 0.1.8 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="kRPC 0.1.8 documentation" href="../index.html"/>
+        <link rel="up" title="Python API" href="../python-api.html"/>
+        <link rel="next" title="Comms" href="comms.html"/>
+        <link rel="prev" title="Parts" href="parts.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> kRPC</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#the-python-client">The Python Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#hello-world-script">&#8216;Hello World&#8217; Script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials and Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/suborbital-flight.html">Sub-Orbital Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/launch-into-orbit.html">Launch into Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/pitch-heading-roll.html">Pitch, Heading and Roll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/parts.html">Interacting with Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/docking-guidance.html">Docking Guidance</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../python-api.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="space-center.html">SpaceCenter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vessel.html">Vessel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celestial-body.html">CelestialBody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flight.html">Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orbit.html">Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control.html">Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vessel-resources.html">Vessel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parts.html">Parts</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comms.html">Comms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frame.html">ReferenceFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto-pilot.html">AutoPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry-types.html">Geometry Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../compiling.html">Compiling kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../compiling.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../compiling.html#the-python-client-library">The Python Client Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../extending.html">Extending kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending.html#the-krpc-architecture">The kRPC Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending.html#service-api">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending.html#further-examples">Further Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../communication-protocol.html">Communication Protocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#establishing-a-connection">Establishing a connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#remote-procedures">Remote Procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#protocol-buffer-encoding">Protocol Buffer Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#streams">Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#krpc-service">KRPC Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication-protocol.html#service-description-message">Service Description Message</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">kRPC</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../python-api.html">Python API</a> &raquo;</li>
+      
+    <li>Node</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/python-api/node.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="node">
+<h1>Node<a class="headerlink" href="#node" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="Node">
+<em class="property">class </em><tt class="descname">Node</tt><a class="headerlink" href="#Node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a maneuver node. Can be created using <a class="reference internal" href="control.html#Control.add_node" title="Control.add_node"><tt class="xref py py-meth docutils literal"><span class="pre">Control.add_node()</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="Node.prograde">
+<tt class="descname">prograde</tt><a class="headerlink" href="#Node.prograde" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the magnitude of the maneuver nodes delta-v in the prograde
+direction, in meters per second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Node.normal">
+<tt class="descname">normal</tt><a class="headerlink" href="#Node.normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the magnitude of the maneuver nodes delta-v in the normal
+direction, in meters per second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Node.radial">
+<tt class="descname">radial</tt><a class="headerlink" href="#Node.radial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the magnitude of the maneuver nodes delta-v in the radial
+direction, in meters per second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Node.delta_v">
+<tt class="descname">delta_v</tt><a class="headerlink" href="#Node.delta_v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the delta-v of the maneuver node, in meters per second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Does not change when executing the maneuver node. See
+<a class="reference internal" href="#Node.remaining_delta_v" title="Node.remaining_delta_v"><tt class="xref py py-meth docutils literal"><span class="pre">Node.remaining_delta_v()</span></tt></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Node.remaining_delta_v">
+<tt class="descname">remaining_delta_v</tt><a class="headerlink" href="#Node.remaining_delta_v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the remaining delta-v of the maneuver node, in meters per
+second. Changes as the node is executed. This is equivalent to the delta-v
+reported in-game.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Node.burn_vector">
+<tt class="descname">burn_vector</tt><big>(</big><span class="optional">[</span><em>reference_frame=Vessel.orbital_reference_frame</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#Node.burn_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a vector whose direction the direction of the maneuver node burn,
+and whose magnitude is the delta-v of the burn in m/s.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Vector3" title="Vector3"><tt class="xref py py-class docutils literal"><span class="pre">Vector3</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Does not change when executing the maneuver node. See
+<a class="reference internal" href="#Node.remaining_burn_vector" title="Node.remaining_burn_vector"><tt class="xref py py-meth docutils literal"><span class="pre">Node.remaining_burn_vector()</span></tt></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Node.remaining_burn_vector">
+<tt class="descname">remaining_burn_vector</tt><big>(</big><span class="optional">[</span><em>reference_frame=Vessel.orbital_reference_frame</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#Node.remaining_burn_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a vector whose direction the direction of the maneuver node burn,
+and whose magnitude is the delta-v of the burn in m/s. The direction and
+magnitude change as the burn is executed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Node.ut">
+<tt class="descname">ut</tt><a class="headerlink" href="#Node.ut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the universal time at which the maneuver will occur, in
+seconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">double</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Node.time_to">
+<tt class="descname">time_to</tt><a class="headerlink" href="#Node.time_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the time until the maneuver node will be encountered, in seconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">double</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Node.orbit">
+<tt class="descname">orbit</tt><a class="headerlink" href="#Node.orbit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the orbit that results from executing the maneuver node.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="orbit.html#Orbit" title="Orbit"><tt class="xref py py-class docutils literal"><span class="pre">Orbit</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Node.remove">
+<tt class="descname">remove</tt><big>(</big><big>)</big><a class="headerlink" href="#Node.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the maneuver node.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Node.reference_frame">
+<tt class="descname">reference_frame</tt><a class="headerlink" href="#Node.reference_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the reference frame that is fixed relative to the maneuver node&#8217;s burn.</p>
+<ul class="simple">
+<li>The origin is at the position of the maneuver node.</li>
+<li>The y-axis points in the direction of the burn.</li>
+<li>The x-axis and z-axis point in arbitrary but fixed directions.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><tt class="xref py py-class docutils literal"><span class="pre">ReferenceFrame</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Node.orbital_reference_frame">
+<tt class="descname">orbital_reference_frame</tt><a class="headerlink" href="#Node.orbital_reference_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the reference frame that is fixed relative to the maneuver node, and
+orientated with the orbital prograde/normal/radial directions of the
+original orbit at the maneuver node&#8217;s position.</p>
+<ul class="simple">
+<li>The origin is at the position of the maneuver node.</li>
+<li>The x-axis points in the orbital anti-radial direction of the original
+orbit, at the position of the maneuver node.</li>
+<li>The y-axis points in the orbital prograde direction of the original
+orbit, at the position of the maneuver node.</li>
+<li>The z-axis points in the orbital normal direction of the original orbit,
+at the position of the maneuver node.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><tt class="xref py py-class docutils literal"><span class="pre">ReferenceFrame</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Node.position">
+<tt class="descname">position</tt><big>(</big><em>reference_frame</em><big>)</big><a class="headerlink" href="#Node.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the position vector of the maneuver node in the given reference
+frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Vector3" title="Vector3"><tt class="xref py py-class docutils literal"><span class="pre">Vector3</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Node.direction">
+<tt class="descname">direction</tt><big>(</big><em>reference_frame</em><big>)</big><a class="headerlink" href="#Node.direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the unit direction vector of the maneuver nodes burn in the given
+reference frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_frame</strong> (<a class="reference internal" href="reference-frame.html#ReferenceFrame" title="ReferenceFrame"><em>ReferenceFrame</em></a>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="geometry-types.html#Vector3" title="Vector3"><tt class="xref py py-class docutils literal"><span class="pre">Vector3</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="comms.html" class="btn btn-neutral float-right" title="Comms">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="parts.html" class="btn btn-neutral" title="Parts"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, djungelorm.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61341323-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

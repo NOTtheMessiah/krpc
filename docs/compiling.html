@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Compiling kRPC &mdash; kRPC 0.1.8 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="kRPC 0.1.8 documentation" href="index.html"/>
+        <link rel="next" title="Extending kRPC" href="extending.html"/>
+        <link rel="prev" title="Geometry Types" href="python-api/geometry-types.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> kRPC</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#the-python-client">The Python Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#hello-world-script">&#8216;Hello World&#8217; Script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials and Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/suborbital-flight.html">Sub-Orbital Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/launch-into-orbit.html">Launch into Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/pitch-heading-roll.html">Pitch, Heading and Roll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/parts.html">Interacting with Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/docking-guidance.html">Docking Guidance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python-api.html">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python-api/space-center.html">SpaceCenter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/vessel.html">Vessel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/celestial-body.html">CelestialBody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/flight.html">Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/orbit.html">Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/control.html">Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/vessel-resources.html">Vessel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/parts.html">Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/node.html">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/comms.html">Comms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/reference-frame.html">ReferenceFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/auto-pilot.html">AutoPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-api/geometry-types.html">Geometry Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Compiling kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-python-client-library">The Python Client Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extending.html#the-krpc-architecture">The kRPC Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending.html#service-api">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending.html#further-examples">Further Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="communication-protocol.html">Communication Protocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="communication-protocol.html#establishing-a-connection">Establishing a connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication-protocol.html#remote-procedures">Remote Procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication-protocol.html#protocol-buffer-encoding">Protocol Buffer Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication-protocol.html#streams">Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication-protocol.html#krpc-service">KRPC Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication-protocol.html#service-description-message">Service Description Message</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">kRPC</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Compiling kRPC</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/compiling.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="compiling-krpc">
+<h1>Compiling kRPC<a class="headerlink" href="#compiling-krpc" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-server-plugin">
+<h2>The Server Plugin<a class="headerlink" href="#the-server-plugin" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-the-makefile">
+<h3>Using the Makefile<a class="headerlink" href="#using-the-makefile" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Install the required dependencies.</p>
+<p>You will need to install the MonoDevelop command line tool, Mono runtime and
+development libraries, the Protocol Buffers compiler (at least version
+3.0.0-alpha-1) and Inkscape.</p>
+<p>On Linux, you should be able to use your package manager. For example on
+Ubuntu:</p>
+<p><tt class="docutils literal"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">mono-complete</span> <span class="pre">monodevelop</span> <span class="pre">protobuf-compiler</span> <span class="pre">inkscape</span></tt></p>
+<p>Alternatively, you can install the Protocol Buffers compiler from source:
+<a class="reference external" href="https://code.google.com/p/protobuf">https://code.google.com/p/protobuf</a></p>
+<p>On Ubuntu, you may want to use a more recent version of MonoDevelop than that
+provided in the apt repositories. The latest version can be installed from
+<a class="reference external" href="http://www.monodevelop.com/download/linux/#debian-ubuntu-and-derivatives">http://www.monodevelop.com/download/linux/#debian-ubuntu-and-derivatives</a></p>
+</li>
+<li><p class="first">Set the path to your KSP directory.</p>
+<p>The build scripts need to know where your KSP directory is. This is specified
+by the <tt class="docutils literal"><span class="pre">KSP_DIR</span></tt> environment variable. On Linux this can be set using:</p>
+<p><tt class="docutils literal"><span class="pre">export</span> <span class="pre">KSP_DIR=&quot;/path/to/Kerbal\\</span> <span class="pre">Space\\</span> <span class="pre">Program&quot;</span></tt></p>
+<p>Note: The path needs to be an absolute path and any spaces need to be escaped
+using <tt class="docutils literal"><span class="pre">\\</span></tt></p>
+</li>
+<li><p class="first">Compile the plugin binaries.</p>
+<p>Running <tt class="docutils literal"><span class="pre">make</span> <span class="pre">build</span></tt> compiles the protocol buffer .proto files into C#
+classes, and compiles kRPC.dll and kRPCSpaceCenter.dll using the MonoDevelop
+command line tool.</p>
+</li>
+<li><p class="first">Collect together all the plugin files.</p>
+<p>Running <tt class="docutils literal"><span class="pre">make</span> <span class="pre">dist</span></tt> will collect together all of the plugin files that need
+to go into your GameData directory, and places them in a directory called
+<tt class="docutils literal"><span class="pre">dist</span></tt>.</p>
+</li>
+<li><p class="first">Copy the plugin files to KSP&#8217;s GameData directory.</p>
+<p>You can either manually copy the files from the <cite>dist</cite> directory to your
+GameData directory, or run the following command (passing the path to your
+KSP install directory):</p>
+<p><tt class="docutils literal"><span class="pre">make</span> <span class="pre">install</span> <span class="pre">KSP_DIR=&quot;/home/djungelorm/Kerbal</span> <span class="pre">Space</span> <span class="pre">Program&quot;</span></tt></p>
+</li>
+</ol>
+</div>
+<div class="section" id="using-an-ide">
+<h3>Using an IDE<a class="headerlink" href="#using-an-ide" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Install the Protocol Buffers compiler (as above).</p>
+<p>For example, on Ubuntu Linux, using your package manager:</p>
+<p><tt class="docutils literal"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">protobuf-compiler</span></tt></p>
+</li>
+<li><p class="first">Compile the protocol buffer .proto files into C# classes:</p>
+<p><tt class="docutils literal"><span class="pre">make</span> <span class="pre">protobuf-csharp</span></tt></p>
+</li>
+<li><p class="first">Open the solution file <tt class="docutils literal"><span class="pre">kRPC.sln</span></tt> in your IDE.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="the-python-client-library">
+<h2>The Python Client Library<a class="headerlink" href="#the-python-client-library" title="Permalink to this headline">¶</a></h2>
+<p>The source code for the python client library can be found in the directory
+<tt class="docutils literal"><span class="pre">python</span></tt>. You can install it from source as follows:</p>
+<ol class="arabic">
+<li><p class="first">Install the Protocol Buffers python package (at least version 3.0.0-alpha-1)
+for example using pip:</p>
+<p><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">protobuf</span></tt></p>
+<p>Or, alternatively, you can install it from source:
+<a class="reference external" href="https://code.google.com/p/protobuf">https://code.google.com/p/protobuf</a></p>
+</li>
+<li><p class="first">Compile the Protocol Buffers .proto files to .py files using:</p>
+<p><tt class="docutils literal"><span class="pre">make</span> <span class="pre">protobuf</span></tt></p>
+</li>
+<li><p class="first">Install the krpc python package:</p>
+<p><tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></tt></p>
+</li>
+</ol>
+<div class="section" id="running-the-tests">
+<h3>Running the Tests<a class="headerlink" href="#running-the-tests" title="Permalink to this headline">¶</a></h3>
+<p>The project contains unit tests for the server code (using NUnit) and for the
+python client code (using unittest), and integration tests to test the
+SpaceCenter API when a copy of KSP is running. The tests can be run using <tt class="docutils literal"><span class="pre">make</span>
+<span class="pre">test</span></tt> (after compiling everything using <tt class="docutils literal"><span class="pre">make</span> <span class="pre">build</span></tt>).</p>
+<p>Running the NUnit tests requires <tt class="docutils literal"><span class="pre">nunit-console</span></tt> to be installed.
+To install this on Ubuntu run:</p>
+<p><tt class="docutils literal"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">nunit-console</span></tt></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="extending.html" class="btn btn-neutral float-right" title="Extending kRPC">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="python-api/geometry-types.html" class="btn btn-neutral" title="Geometry Types"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, djungelorm.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61341323-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>
